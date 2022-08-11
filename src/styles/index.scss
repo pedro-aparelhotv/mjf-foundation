@@ -10,13 +10,15 @@
 @import './base/base';
 
 @import './shared/titles';
+@import './shared/button-text';
 @import './shared/paragraphs';
-@import './shared/page';
+@import './shared/pages';
 
 // @import './base/debug';
 
-// @import './components/...';
+@import './components/article-modal';
 
-// @import './layout/header';
+@import './layout/header';
 
-// @import './pages/home/home';
+@import './pages/news/news.scss';
+@import './pages/news/article.scss';

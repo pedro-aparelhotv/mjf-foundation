@@ -1,0 +1,35 @@
+.header {
+  position: fixed;
+  z-index: z('header');
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+
+  pointer-events: none;
+}
+
+.header__wrapper {
+  @extend %space-between;
+  align-items: flex-start;
+
+  width: 100%;
+  position: relative;
+}
+
+.header__link {
+  @extend %title-70;
+  font-size: 7.5vh;
+  transform-origin: left bottom;
+  transform: translateY(-1em) rotate(90deg);
+  pointer-events: all;
+}
+
+.header__menu-btn {
+  @extend %button-text-35;
+  margin-block-start: 1.1rem;
+  margin-inline-end: 2.2rem;
+
+  pointer-events: all;
+
+}
