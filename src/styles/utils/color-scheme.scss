@@ -1,0 +1,26 @@
+:root {
+  --clr-white: 0 100% 100%;
+  --clr-black: 0 0% 0%;
+  --clr-cod-gray: 0 0% 12%;
+  --clr-mine-shaft: 0 0% 18%;
+  --clr-tundora: 0 2% 27%;
+  --clr-bianca: 54 60% 98%;
+  --clr-starship: 54 88% 62%;
+  --clr-carnation: 7 88% 62%;
+
+
+  --text-01-clr: hsl(var(--clr-black));
+  --text-02-clr: hsl(var(--clr-mine-shaft));
+  --text-03-clr: hsl(var(--clr-cod-gray));
+
+  --button-text-clr: hsl(var(--clr-mine-shaft));
+
+  --border-01-clr: hsl(var(--clr-tundora));
+
+  --surface-01-clr: hsl(var(--clr-white));
+  --surface-01-clr: hsl(var(--clr-bianca));
+
+
+  --border-rad-01: 1.2rem;
+  --border-rad-02: 50%;
+}
