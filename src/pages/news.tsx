@@ -1,10 +1,21 @@
 import Image from 'next/image'
 import { useState } from 'react'
 
+import { useSmoothScroll } from 'hooks/useSmoothScroll'
+
 import ArticleModal from 'components/ArticleModal'
 
 export default function News() {
   const [isOpen, setIsOpen] = useState(false)
+
+  useSmoothScroll({
+    selector: '.news',
+    disable: isOpen,
+  })
+
+  const handleOpenArticle = () => {
+    setIsOpen(true)
+  }
 
   return (
     <>
@@ -12,7 +23,7 @@ export default function News() {
         <div className="news__wrapper">
           <ul className="news__list">
             <li className="news__item">
-              <article className="news__article">
+              <article className="news__article" onClick={handleOpenArticle}>
                 <div className="news__article__img">
                   <Image
                     src="/images/image.jpg"
@@ -40,7 +51,7 @@ export default function News() {
               </article>
             </li>
             <li className="news__item">
-              <article className="news__article">
+              <article className="news__article" onClick={handleOpenArticle}>
                 <div className="news__article__img">
                   <Image
                     src="/images/image2.jpg"
@@ -69,7 +80,7 @@ export default function News() {
               </article>
             </li>
             <li className="news__item">
-              <article className="news__article">
+              <article className="news__article" onClick={handleOpenArticle}>
                 <div className="news__article__img">
                   <Image
                     src="/images/image3.jpg"
