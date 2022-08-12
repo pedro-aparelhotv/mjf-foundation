@@ -1,0 +1,17 @@
+@font-face {
+  font-family: 'GT Alpina Trial';
+  src: url('/fonts/gt-alpine/GTAlpinaTrial-RegularItalic.woff2') format('woff2'),
+    url('/fonts/gt-alpine/GTAlpinaTrial-RegularItalic.woff') format('woff');
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'ABC Diatype Mono Unlicensed Trial';
+  src: url('/fonts/abc-diatype/ABCDiatypeMono-Regular.woff2') format('woff2'),
+    url('/fonts/abc-diatype/ABCDiatypeMono-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}

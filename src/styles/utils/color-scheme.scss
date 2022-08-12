@@ -1,5 +1,6 @@
 :root {
   --clr-white: 0 100% 100%;
+  --clr-athens-gray: 230 17% 93%;
   --clr-black: 0 0% 0%;
   --clr-cod-gray: 0 0% 12%;
   --clr-mine-shaft: 0 0% 18%;
@@ -19,6 +20,7 @@
 
   --surface-01-clr: hsl(var(--clr-white));
   --surface-02-clr: hsl(var(--clr-bianca));
+  --surface-03-clr: hsl(var(--clr-athens-gray));
 
 
   --border-rad-01: 1.2rem;
