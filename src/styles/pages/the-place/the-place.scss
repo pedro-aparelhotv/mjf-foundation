@@ -1,0 +1,82 @@
+.the-place {
+  @extend %page;
+
+  background-color: #D9D9D9;
+  background-image: url('/images/bg/the-place.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.the-place__wrapper {
+  @extend %page__wrapper;
+
+  padding-block: 2rem;
+  transform: translateX(-8rem);
+
+  overflow: visible;
+}
+
+.the-place__swiper {
+  scroll-margin-left: 15rem;
+  overflow: visible !important;
+  pointer-events: all;
+
+  &>.swiper-wrapper {
+    margin-inline-end: 14rem;
+  }
+}
+
+.the-place__swiper__slide {
+  --gap: 4.6rem;
+  @extend %flex;
+  flex-direction: column;
+
+  &.swiper-slide-prev {
+
+    .the-place__swiper__slide__title,
+    .the-place__swiper__slide__paragraph {
+      opacity: 0;
+      transform: translateX(-20%);
+      transition: 0.4s ease;
+    }
+  }
+
+  &.swiper-slide-active {
+
+    .the-place__swiper__slide__title,
+    .the-place__swiper__slide__paragraph {
+      opacity: 1;
+      transform: translateX(0);
+      transition-delay: 0.2s;
+    }
+  }
+
+  &.swiper-slide-next {
+
+    .the-place__swiper__slide__title,
+    .the-place__swiper__slide__paragraph {
+      opacity: 0;
+      transform: translateX(20%);
+      transition: 0.4s ease;
+    }
+  }
+}
+
+.the-place__swiper__slide__img {
+  @include ratio(984, 655);
+  position: relative;
+
+  min-width: 98.4rem;
+  width: 98.4rem;
+  height: 65.5rem;
+
+  object-fit: cover;
+}
+
+.the-place__swiper__slide__title,
+.the-place__swiper__slide__paragraph {
+  @extend %paragraph-40;
+
+  transition: 0.8s ease;
+  min-width: 58ch;
+}

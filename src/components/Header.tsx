@@ -1,7 +1,9 @@
 import Link from 'next/link'
+import { useRouter } from 'next/router'
 import { useState } from 'react'
 
 const Header = () => {
+  const router = useRouter()
   const [menuIsOpen, setMenuIsOpen] = useState(false)
 
   const handleOpenMenu = () => {
@@ -11,11 +13,15 @@ const Header = () => {
     setMenuIsOpen(false)
   }
 
+  const pageTitle = router.asPath.slice(1).split('-').join(' ')
+
   return (
     <header className="header">
       <div className="header__wrapper">
         <Link href="/" passHref>
-          <a className="header__link">Maaretta Jaukkuri Foundation</a>
+          <a className="header__link">
+            <span>Maaretta Jaukkuri</span> Foundation
+          </a>
         </Link>
 
         <button
@@ -23,7 +29,8 @@ const Header = () => {
           type="button"
           onClick={handleOpenMenu}
         >
-          Menu
+          {pageTitle}
+          <div className="header__menu-btn__icon" />
         </button>
 
         <div className="header__menu" data-open={menuIsOpen}>
@@ -38,43 +45,43 @@ const Header = () => {
             <nav className="header__menu__nav">
               <ul className="header__menu__list">
                 <li className="header__menu__item" data-id="foundation">
-                  <Link href="/" passHref>
-                    <a className="header__menu__link">
+                  <Link href="/the-foundation" passHref>
+                    <a className="header__menu__link" onClick={handleCloseMenu}>
                       <span>01</span> The Foundation
                     </a>
                   </Link>
                 </li>
                 <li className="header__menu__item" data-id="mission">
                   <Link href="/" passHref>
-                    <a className="header__menu__link">
+                    <a className="header__menu__link" onClick={handleCloseMenu}>
                       <span>02</span> Mission
                     </a>
                   </Link>
                 </li>
                 <li className="header__menu__item" data-id="fellows">
                   <Link href="/" passHref>
-                    <a className="header__menu__link">
+                    <a className="header__menu__link" onClick={handleCloseMenu}>
                       <span>03</span> Fellows
                     </a>
                   </Link>
                 </li>
                 <li className="header__menu__item" data-id="about">
                   <Link href="/" passHref>
-                    <a className="header__menu__link">
+                    <a className="header__menu__link" onClick={handleCloseMenu}>
                       <span>04</span> About
                     </a>
                   </Link>
                 </li>
                 <li className="header__menu__item" data-id="library">
-                  <Link href="/" passHref>
-                    <a className="header__menu__link">
+                  <Link href="/library" passHref>
+                    <a className="header__menu__link" onClick={handleCloseMenu}>
                       <span>05</span> Library
                     </a>
                   </Link>
                 </li>
                 <li className="header__menu__item" data-id="events">
-                  <Link href="/" passHref>
-                    <a className="header__menu__link">
+                  <Link href="/events" passHref>
+                    <a className="header__menu__link" onClick={handleCloseMenu}>
                       <span>06</span> Events
                     </a>
                   </Link>

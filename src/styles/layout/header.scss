@@ -26,12 +26,21 @@
 }
 
 .header__menu-btn {
-  @extend %button-text-35;
+  @extend %button-text-30;
+  @extend %flex;
+  align-items: center;
   margin-block-start: 1.1rem;
   margin-inline-end: 2.2rem;
 
   pointer-events: all;
+  text-transform: capitalize;
+}
 
+.header__menu-btn__icon {
+  width: 3.5rem;
+  height: 1.1rem;
+  border-top: 1px solid var(--border-01-clr);
+  border-bottom: 1px solid var(--border-01-clr);
 }
 
 .header__menu {

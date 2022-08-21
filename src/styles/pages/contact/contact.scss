@@ -1,0 +1,30 @@
+.contact {
+  @extend %page;
+
+  background-color: #D9D9D9;
+  background-image: url('/images/bg/the-place.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.contact__wrapper {
+  @extend %page__wrapper;
+
+  padding-block: 2rem;
+  padding-inline-start: 15rem;
+  padding-inline-end: 2rem;
+}
+
+.contact__img {
+  @include ratio(862, 655);
+  position: relative;
+
+  min-width: 86.2rem;
+  width: 86.2rem;
+  height: 65.5rem;
+}
+
+.contact__address {
+  margin-block-start: 4.2rem;
+  @extend %paragraph-40;
+}
