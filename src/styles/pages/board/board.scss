@@ -1,0 +1,27 @@
+.board {
+  @extend %page;
+
+  background-color: #EFF4F4;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.board__wrapper {
+  @extend %page__wrapper;
+
+  padding-inline-start: 15rem;
+  padding-inline-end: 2rem;
+  padding-block: 2rem;
+
+  --gap: 2rem;
+  @extend %flex;
+
+}
+
+.board__content {
+  --gap: 2.8rem;
+  @extend %flex;
+  flex-direction: column;
+
+  flex: 1;
+}

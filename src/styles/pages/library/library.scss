@@ -1,0 +1,42 @@
+.library {
+  @extend %page;
+
+  background-color: #fff;
+  background-image: url('/images/bg/library.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.library__wrapper {
+  @extend %page__wrapper;
+
+  padding-inline-start: 15rem;
+  padding-inline-end: 2rem;
+  padding-block: 2rem;
+
+  height: 100vh;
+  @extend %space-between;
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+.library__title {
+  @extend %paragraph-57;
+  max-width: 36ch;
+}
+
+.library__link {
+  width: 100%;
+  @extend %space-between;
+
+  padding-block-end: 0.8rem;
+  border-bottom: 2px solid var(--border-01-clr);
+
+  >span {
+    @extend %button-text-35;
+
+    &:last-of-type {
+      font-style: italic;
+    }
+  }
+}

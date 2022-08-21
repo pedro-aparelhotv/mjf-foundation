@@ -1,0 +1,19 @@
+.figure {
+  --gap: 0.8rem;
+  @extend %flex;
+  flex-direction: column;
+}
+
+.figure__img {
+  @include ratio(690, 509);
+  position: relative;
+
+  min-width: 69rem;
+  width: 69rem;
+  min-height: 50.9rem;
+}
+
+.figure__fig-caption {
+  @extend %paragraph-31;
+  font-family: "GT Alpina Trial", serif;
+}

@@ -16,9 +16,19 @@
 
 // @import './base/debug';
 
+@import './components/article';
 @import './components/article-modal';
+@import './components/figure';
+@import './components/section';
 
 @import './layout/header';
 
-@import './pages/news/news.scss';
-@import './pages/news/article.scss';
+@import './pages/board/board';
+
+@import './pages/events/events';
+
+@import './pages/library/library';
+
+@import './pages/news/news';
+
+@import './pages/the-foundation/the-foundation';

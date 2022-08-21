@@ -1,0 +1,19 @@
+.section {
+  --gap: 2.8rem;
+  @extend %flex;
+  flex-direction: column;
+}
+
+.section__title {
+  @extend %title-30;
+  text-transform: uppercase;
+  text-align: center;
+
+  padding-block: 2rem;
+  border: 1px solid var(--border-01-clr);
+}
+
+.section__paragraph {
+  @extend %paragraph-31;
+  white-space: pre-line;
+}

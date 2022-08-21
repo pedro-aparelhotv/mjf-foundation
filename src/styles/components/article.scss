@@ -1,16 +1,16 @@
-.news__article {
+.article {
   --gap: 0;
   @extend %flex;
 
   &:hover {
-    .news__article__btn {
+    .article__btn {
       opacity: 1;
       visibility: visible;
     }
   }
 }
 
-.news__article__img {
+.article__img {
   @include ratio(337, 270);
   position: relative;
 
@@ -23,7 +23,7 @@
 
 }
 
-.news__article__info {
+.article__info {
   --gap: 3rem;
   @extend %flex;
   flex-direction: column;
@@ -34,7 +34,7 @@
   padding-inline: 2.2rem;
 }
 
-.news__article__title {
+.article__title {
   @extend %title-60;
 
   >span {
@@ -42,7 +42,7 @@
   }
 }
 
-.news__article__subtitle {
+.article__subtitle {
   @extend %title-45;
   max-width: 32ch;
 
@@ -51,7 +51,7 @@
   }
 }
 
-.news__article__btn {
+.article__btn {
   @extend %button-text-12;
   position: absolute;
   bottom: 1.6rem;

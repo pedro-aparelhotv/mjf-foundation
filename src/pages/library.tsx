@@ -1,4 +1,4 @@
-const Library = () => {
+export default function Library() {
   return (
     <main className="library">
       <div className="library__wrapper">
@@ -11,9 +11,12 @@ const Library = () => {
           <span>The Place in Lofoten</span>. MJF also presents public seminars
           and other <span>events</span>.
         </h1>
+
+        <a className="library__link">
+          <span>See Library Index</span>
+          <span>External Link</span>
+        </a>
       </div>
     </main>
   )
 }
-
-export default Library

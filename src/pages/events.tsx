@@ -5,13 +5,13 @@ import { useSmoothScroll } from 'hooks/useSmoothScroll'
 import Article from 'components/Article'
 import ArticleModal from 'components/ArticleModal'
 
-import news from 'assets/news.json'
+import events from 'assets/events.json'
 
-export default function News() {
+export default function Events() {
   const [isOpen, setIsOpen] = useState(false)
 
   useSmoothScroll({
-    selector: '.news',
+    selector: '.events',
     disable: isOpen,
   })
 
@@ -21,11 +21,11 @@ export default function News() {
 
   return (
     <>
-      <main className="news">
-        <div className="news__wrapper">
-          <ul className="news__list">
-            {news.map(entry => (
-              <li className="news__item" key={entry.id}>
+      <main className="events">
+        <div className="events__wrapper">
+          <ul className="events__list">
+            {events.map(entry => (
+              <li className="events__item" key={entry.id}>
                 <Article
                   data={{
                     ...entry,

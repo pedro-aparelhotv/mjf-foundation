@@ -1,0 +1,26 @@
+.the-foundation {
+  @extend %page;
+
+  background-color: #fff;
+  background-image: url('/images/bg/the-foundation.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.the-foundation__wrapper {
+  @extend %page__wrapper;
+
+  padding-inline-start: 15rem;
+  padding-inline-end: 2rem;
+  padding-block: 2rem;
+
+  --gap: 2rem;
+  @extend %flex;
+}
+
+.the-foundation__content {
+  --gap: 2.8rem;
+  @extend %flex;
+  flex-direction: column;
+  flex: 1;
+}
