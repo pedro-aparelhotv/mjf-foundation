@@ -1,0 +1,163 @@
+#cardContainer {
+  position: relative;
+  width: 340px;
+  /* background: rgb(194, 194, 194); */
+  border-radius: 5px;
+  transform-origin: bottom;
+  margin: auto;
+  cursor: pointer;
+}
+
+#first {
+  width: 340px;
+  height: 340px;
+  position: absolute;
+  border-radius: 5px;
+  color: #000;
+  transform-origin: bottom;
+  transform-style: preserve-3d;
+  transition: 0.5s;
+  border-radius: 8px;
+  display: flex;
+  // backface-visibility: hidden;
+}
+
+
+#firstDisplay {
+  width: 100%;
+  height: 340px;
+  position: absolute;
+  background: #fff;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 18px 23px;
+  flex-wrap: wrap;
+  backface-visibility: hidden;
+  box-shadow: 0px 0px 25px -1px rgba(0, 0, 0, 0.17);
+}
+
+
+
+
+#firstTop {
+  width: 340px;
+  height: 340px;
+
+  position: absolute;
+  background: #ffffff;
+  backface-visibility: hidden;
+  border-radius: 8px;
+  border-radius: 8px;
+  box-shadow: 0px 0px 3px 0px rgba(132, 132, 132, 0.15);
+  display: flex;
+  justify-content: space-around;
+}
+
+
+
+#firstBehind {
+  width: 340px;
+  height: 340px;
+  position: absolute;
+  background: #fff;
+  transform-origin: center;
+  transform: rotate3d(1, 0, 0, -180deg);
+  backface-visibility: hidden;
+  border-radius: 8px;
+  border: 1px dashed #d1d1d1;
+  border-left: none;
+  border-right: none;
+}
+
+#firstBehindDisplay {
+  width: 100%;
+  height: 340px;
+  position: absolute;
+  background: #fff;
+  border-radius: 8px;
+  padding: 12px 23px;
+  display: flex;
+  justify-content: space-between;
+  box-shadow: 0px 11px 25px -1px rgba(0, 0, 0, 0.17);
+}
+
+#second {
+  width: 340px;
+  height: 50px;
+  position: absolute;
+  bottom: -2px;
+  transform-origin: bottom;
+  transform-style: preserve-3d;
+  transition: 0.2s;
+  border-radius: 8px;
+}
+
+#secondTop {
+  width: 340px;
+  height: 50px;
+  position: absolute;
+  background: rgb(231, 231, 231);
+  backface-visibility: hidden;
+  border-radius: 8px;
+}
+
+#thirdTop {
+  width: 340px;
+  height: 50px;
+  position: absolute;
+  background: rgb(190, 190, 190);
+  backface-visibility: hidden;
+  border-radius: 8px;
+}
+
+#secondBehind {
+  width: 340px;
+  height: 50px;
+  position: absolute;
+  background: #fff;
+  transform-origin: center;
+  transform: rotate3d(1, 0, 0, -180deg);
+  backface-visibility: hidden;
+  border-radius: 8px;
+  border: 1px dashed #d1d1d1;
+  border-left: none;
+  border-right: none;
+}
+
+#secondBehindDisplay {
+  width: 100%;
+  height: 50px;
+  position: absolute;
+  background: #fff;
+  border-radius: 8px;
+  border-bottom: 1px dashed #d1d1d1;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 23px;
+  box-shadow: 0px 11px 25px -1px rgba(0, 0, 0, 0.17);
+}
+
+#secondBehindBottom {
+  width: 340px;
+  height: 50px;
+  position: absolute;
+  background: #fff;
+  transform-origin: center;
+  transform: rotate3d(1, 0, 0, -180deg);
+  backface-visibility: hidden;
+  border-radius: 0px 0px 8px 8px;
+  border-radius: 8px;
+  box-shadow: 0px 11px 25px -1px rgba(0, 0, 0, 0.17);
+}
+
+#third {
+  width: 340px;
+  height: 50px;
+  position: absolute;
+  transform-origin: bottom;
+  transform-style: preserve-3d;
+  transition: 0.2s;
+  border-radius: 8px;
+}

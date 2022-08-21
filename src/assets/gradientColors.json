@@ -1,0 +1,44 @@
+{
+  "the-foundation": {
+    "--gradient-color-1": "#A77BB2",
+    "--gradient-color-2": "#A77BB2",
+    "--gradient-color-3": "#F1F2E9",
+    "--gradient-color-4": "#F1F2E9"
+  },
+  "news": {
+    "--gradient-color-1": "#7BB291",
+    "--gradient-color-2": "#7BB291",
+    "--gradient-color-3": "#CDC9A7",
+    "--gradient-color-4": "#CDC9A7"
+  },
+  "events": {
+    "--gradient-color-1": "#7BB291",
+    "--gradient-color-2": "#7BB291",
+    "--gradient-color-3": "#F1C787",
+    "--gradient-color-4": "#FFEDD2"
+  },
+  "the-place": {
+    "--gradient-color-1": "#F1C787",
+    "--gradient-color-2": "#F1C787",
+    "--gradient-color-3": "#E0E0E0",
+    "--gradient-color-4": "#E0E0E0"
+  },
+  "library": {
+    "--gradient-color-1": "#E8E3BE",
+    "--gradient-color-2": "#F9BDE8",
+    "--gradient-color-3": "#E8E3BE",
+    "--gradient-color-4": "#F9BDE8"
+  },
+  "board": {
+    "--gradient-color-1": "#EFF4F4",
+    "--gradient-color-2": "#EFF4F4",
+    "--gradient-color-3": "#EFF4F4",
+    "--gradient-color-4": "#EFF4F4"
+  },
+  "contact": {
+    "--gradient-color-1": "#B6A8E8",
+    "--gradient-color-2": "#E1E8DD",
+    "--gradient-color-3": "#E1E8DD",
+    "--gradient-color-4": "#B6A8E8"
+  }
+}
