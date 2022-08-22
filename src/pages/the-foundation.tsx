@@ -5,14 +5,14 @@ import Section from 'components/Section'
 
 export default function TheFoundation() {
   useSmoothScroll({
-    selector: '.the-foundation',
+    selector: '.the-foundation__content.--scrollable',
     disable: false,
   })
 
   return (
     <main className="the-foundation">
       <div className="the-foundation__wrapper">
-        <div className="the-foundation__content">
+        <div className="the-foundation__content --scrollable">
           <Section
             data={{
               title: 'Mission',

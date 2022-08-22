@@ -5,14 +5,14 @@ import Section from 'components/Section'
 
 export default function Board() {
   useSmoothScroll({
-    selector: '.board',
+    selector: '.board__content.--scrollable',
     disable: false,
   })
 
   return (
     <main className="board">
       <div className="board__wrapper">
-        <div className="board__content">
+        <div className="board__content --scrollable">
           <Section
             data={{
               title: 'HONORARY BOARD',

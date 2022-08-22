@@ -1,9 +1,5 @@
 .board {
   @extend %page;
-
-  // background-color: #EFF4F4;
-  // background-repeat: no-repeat;
-  // background-size: cover;
 }
 
 .board__wrapper {
@@ -24,4 +20,8 @@
   flex-direction: column;
 
   flex: 1;
+
+  &.--scrollable {
+    padding-bottom: 4rem;
+  }
 }
