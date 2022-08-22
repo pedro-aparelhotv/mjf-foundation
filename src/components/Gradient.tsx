@@ -14,6 +14,18 @@ const GradientBg = () => {
   const [gradientColors, setGradientColors] = useState(allGradientColors[index])
 
   useEffect(() => {
+    function startGradient() {
+      window.Gradient.initGradient('#gradient-canvas')
+    }
+
+    window.addEventListener('load', startGradient)
+
+    return () => {
+      window.removeEventListener('load', startGradient)
+    }
+  }, [])
+
+  useEffect(() => {
     if (typeof window.Gradient !== 'undefined') {
       window.Gradient.initGradient('#gradient-canvas')
     }
