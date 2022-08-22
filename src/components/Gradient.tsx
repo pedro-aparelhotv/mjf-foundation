@@ -16,7 +16,7 @@ const GradientBg = () => {
   function startGradient() {
     setTimeout(() => {
       window.Gradient.initGradient('#gradient-canvas')
-    }, 100)
+    }, 10)
   }
 
   // useEffect(() => {
