@@ -1,6 +1,11 @@
 .gradient-bg {
   position: fixed;
-  z-index: z("gradient");
+  z-index: z(gradient);
+
+  --gradient-color-1: #76797c;
+  --gradient-color-2: #252525;
+  --gradient-color-3: #16141b;
+  --gradient-color-4: #000000;
 }
 
 .gradient-bg__canvas {

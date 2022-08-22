@@ -9,7 +9,7 @@ import allGradientColors from 'assets/gradientColors.json'
 const GradientBg = () => {
   const router = useRouter()
 
-  const index = router.asPath.slice(1)
+  const index = router.pathname.slice(1)
 
   const [gradientColors, setGradientColors] = useState(allGradientColors[index])
 
@@ -19,14 +19,6 @@ const GradientBg = () => {
     }, 10)
   }
 
-  // useEffect(() => {
-  //   window.addEventListener('load', startGradient)
-
-  //   return () => {
-  //     window.removeEventListener('load', startGradient)
-  //   }
-  // }, [])
-
   useEffect(() => {
     if (typeof window.Gradient !== 'undefined') {
       window.Gradient.initGradient('#gradient-canvas')
@@ -34,7 +26,7 @@ const GradientBg = () => {
   }, [gradientColors])
 
   useEffect(() => {
-    const index = router.asPath.slice(1)
+    const index = router.pathname.slice(1)
 
     const currentColors = allGradientColors[index]
 

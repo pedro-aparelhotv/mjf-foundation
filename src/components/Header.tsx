@@ -13,7 +13,7 @@ const Header = () => {
     setMenuIsOpen(false)
   }
 
-  const pageTitle = router.asPath.slice(1).split('-').join(' ')
+  const pageTitle = router.pathname.slice(1).split('-').join(' ')
 
   return (
     <header className="header">

@@ -1,0 +1,25 @@
+.not-found {
+  @extend %page;
+
+  color: white;
+}
+
+.not-found__wrapper {
+  @extend %page__wrapper;
+  @extend %center;
+  height: 100vh;
+}
+
+.not-found__wrapper__title {
+  @extend %title-32;
+  @extend %flex;
+  align-items: center;
+
+  >div {
+    display: block;
+    margin-inline: 2.8rem;
+    width: 1px;
+    height: 12rem;
+    background-color: white;
+  }
+}
