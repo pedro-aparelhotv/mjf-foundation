@@ -13,17 +13,19 @@ const GradientBg = () => {
 
   const [gradientColors, setGradientColors] = useState(allGradientColors[index])
 
-  useEffect(() => {
-    function startGradient() {
+  function startGradient() {
+    setTimeout(() => {
       window.Gradient.initGradient('#gradient-canvas')
-    }
+    }, 100)
+  }
 
-    window.addEventListener('load', startGradient)
+  // useEffect(() => {
+  //   window.addEventListener('load', startGradient)
 
-    return () => {
-      window.removeEventListener('load', startGradient)
-    }
-  }, [])
+  //   return () => {
+  //     window.removeEventListener('load', startGradient)
+  //   }
+  // }, [])
 
   useEffect(() => {
     if (typeof window.Gradient !== 'undefined') {
@@ -41,7 +43,11 @@ const GradientBg = () => {
 
   return (
     <div className="gradient-bg" style={gradientColors as CSSProperties}>
-      <Script src="/scripts/Gradient.js" beforeInteractive />
+      <Script
+        src="/scripts/Gradient.js"
+        beforeInteractive
+        onLoad={startGradient}
+      />
       <canvas
         className="gradient-bg__canvas"
         id="gradient-canvas"
