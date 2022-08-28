@@ -40,5 +40,11 @@
     "--gradient-color-2": "#E1E8DD",
     "--gradient-color-3": "#E1E8DD",
     "--gradient-color-4": "#B6A8E8"
+  },
+  "fellows": {
+    "--gradient-color-1": "#ECEAE2",
+    "--gradient-color-2": "#E1E8DD",
+    "--gradient-color-3": "#E1E8DD",
+    "--gradient-color-4": "#ECEAE2"
   }
 }

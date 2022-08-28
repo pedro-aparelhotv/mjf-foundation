@@ -6,55 +6,26 @@
   @extend %page__wrapper;
 
   padding-block: 2rem;
-  transform: translateX(-8rem);
+  transform: translateX(-14rem);
 
   overflow: visible;
 }
 
+.the-place-carousel {
+  &+& {
+    margin-block-start: 12.4rem;
+  }
+}
+
 .the-place__swiper {
-  scroll-margin-left: 15rem;
   overflow: visible !important;
   pointer-events: all;
-
-  &>.swiper-wrapper {
-    margin-inline-end: 14rem;
-  }
 }
 
 .the-place__swiper__slide {
   --gap: 4.6rem;
   @extend %flex;
   flex-direction: column;
-
-  &.swiper-slide-prev {
-
-    .the-place__swiper__slide__title,
-    .the-place__swiper__slide__paragraph {
-      opacity: 0;
-      transform: translateX(-20%);
-      transition: 0.4s ease;
-    }
-  }
-
-  &.swiper-slide-active {
-
-    .the-place__swiper__slide__title,
-    .the-place__swiper__slide__paragraph {
-      opacity: 1;
-      transform: translateX(0);
-      transition-delay: 0.2s;
-    }
-  }
-
-  &.swiper-slide-next {
-
-    .the-place__swiper__slide__title,
-    .the-place__swiper__slide__paragraph {
-      opacity: 0;
-      transform: translateX(20%);
-      transition: 0.4s ease;
-    }
-  }
 }
 
 .the-place__swiper__slide__img {
@@ -71,7 +42,12 @@
 .the-place__swiper__slide__title,
 .the-place__swiper__slide__paragraph {
   @extend %paragraph-40;
+  margin-inline-start: 25.2rem;
 
-  transition: 0.8s ease;
   min-width: 58ch;
+  margin-block-start: 2.2rem;
+}
+
+.the-place__swiper__slide__title {
+  margin-block-start: 6.2rem;
 }

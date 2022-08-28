@@ -27,6 +27,13 @@ export default function TheFoundation() {
                 ' Maaretta Jaukkuri Foundation is situated on an island in Lofoten, on the edge of a continental shelf. Like other far away peripheries, the place is sensitive to changes. It is a region of extreme fragility, where we are implicated with changes in nature and the urgent challenges these create.',
             }}
           />
+          <Section
+            data={{
+              title: 'A TEXT BY MAARETTA',
+              paragraph:
+                ' Maaretta Jaukkuri Foundation is situated on an island in Lofoten, on the edge of a continental shelf. Like other far away peripheries, the place is sensitive to changes. It is a region of extreme fragility, where we are implicated with changes in nature and the urgent challenges these create.',
+            }}
+          />
         </div>
 
         <div className="the-foundation__content">

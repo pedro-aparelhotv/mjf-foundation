@@ -8,8 +8,6 @@ import Header from 'components/Header'
 
 import 'styles/index.scss'
 
-import 'components/test.scss'
-
 function MyApp({ Component, pageProps }: AppProps): ReactElement {
   return (
     <>

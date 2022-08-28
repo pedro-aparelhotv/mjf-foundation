@@ -1,0 +1,102 @@
+.fellows {
+  @extend %page;
+}
+
+.fellows__wrapper {
+  @extend %page__wrapper;
+
+  padding-inline-start: 11rem;
+  padding-inline-end: 2rem;
+  padding-block: 2rem;
+
+  --gap: 13.6rem;
+  @extend %space-between;
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+
+.fellows__title {
+  @extend %paragraph-57;
+  max-width: 35ch;
+
+  >span {
+    font-style: italic;
+  }
+}
+
+.fellows__table {
+  width: 100%;
+
+  --gap: 1.6rem;
+  @extend %flex;
+  flex-direction: column;
+}
+
+.fellows__table__options {}
+
+.fellows__table__options__list {
+  @extend %space-between;
+}
+
+.fellows__table__options__item {}
+
+.fellows__table__options__btn {
+  padding-inline: unset;
+  @extend %button-text-35;
+
+  font-style: italic;
+
+  &[data-active=true] {
+    font-style: unset;
+  }
+
+  &:hover {
+    filter: opacity(0.5);
+  }
+}
+
+
+.fellows__table__content {
+  border-top: 0.2rem solid var(--border-01-clr);
+}
+
+.fellows__table__years-list {
+  --gap: 3rem;
+  @extend %flex;
+  flex-wrap: wrap;
+  padding-block: 2.6rem;
+}
+
+.fellows__table__years-item {
+  flex-basis: 31.85%;
+}
+
+.fellows__table__years-btn {
+  @extend %center;
+  @extend %title-48;
+
+  width: 100%;
+  padding-block: 1.4rem;
+
+  border: 0.2rem solid var(--border-01-clr);
+  border-radius: 0.4rem;
+}
+
+.fellows__table__list {}
+
+.fellows__table__item {}
+
+.fellows__article {
+  @extend %space-between;
+  padding-block: 3.6rem;
+  border-bottom: 0.2rem solid var(--border-01-clr);
+}
+
+.fellows__article__title {
+  @extend %title-35;
+}
+
+.fellows__article__len-of-stay {
+  @extend %title-35;
+}
