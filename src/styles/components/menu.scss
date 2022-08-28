@@ -19,13 +19,10 @@
   --margin-left: 10vh;
   --margin-right: 2.2rem;
   --columns: 5;
-  --transition-duration: 1.2s;
+  --transition-duration: 2s;
 
-  transform-origin: right;
-  transform-style: preserve-3d;
-
-  >* {
-    perspective: 7000px;
+  * {
+    perspective: 700px;
   }
 }
 
@@ -39,6 +36,7 @@
   transform-style: preserve-3d;
   backface-visibility: hidden;
   -moz-backface-visibility: hidden;
+  overflow: visible;
 
   background: linear-gradient(180deg, #CEEBFC 0%, #D2DBC0 100%);
 
@@ -143,6 +141,7 @@
     margin-inline-end: 0.4rem;
     font-family: 'ABC Diatype Mono Unlicensed Trial';
     font-size: 1.5rem;
+    font-style: normal;
   }
 
   place-self: center;
