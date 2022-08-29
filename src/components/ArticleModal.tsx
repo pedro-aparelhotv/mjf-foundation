@@ -1,5 +1,7 @@
 import Image from 'next/image'
 
+import { rgbDataURL } from 'utils/color'
+
 interface IArticleModalProps {
   isOpen: boolean
   setIsOpen: (state: boolean) => void
@@ -33,6 +35,9 @@ const ArticleModal = ({ isOpen, setIsOpen }: IArticleModalProps) => {
               src="/images/image.jpg"
               alt="Marina Valle Noronha"
               layout="fill"
+              quality={100}
+              placeholder="blur"
+              blurDataURL={rgbDataURL(238, 210, 182)}
             />
           </div>
 

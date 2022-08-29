@@ -8,10 +8,13 @@ import Menu from './Menu'
 
 const Header = () => {
   const router = useRouter()
-  const [menuIsOpen, setMenuIsOpen] = useState(false)
+  const [menuIsOpen, setMenuIsOpen] = useState(router.pathname.slice(1) === '')
 
   const handleOpenMenu = () => {
     setMenuIsOpen(true)
+    setTimeout(() => {
+      router.push('/')
+    }, 1200)
   }
 
   const pageTitle = router.pathname.slice(1).split('-').join(' ')

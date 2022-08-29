@@ -2,6 +2,8 @@ import Image from 'next/image'
 
 import { useSmoothScroll } from 'hooks/useSmoothScroll'
 
+import { rgbDataURL } from 'utils/color'
+
 export default function Contact() {
   useSmoothScroll({
     selector: '.contact',
@@ -12,7 +14,14 @@ export default function Contact() {
     <main className="contact">
       <div className="contact__wrapper">
         <div className="contact__img">
-          <Image src="/images/contact.png" alt="map" layout="fill" />
+          <Image
+            src="/images/contact.png"
+            alt="map"
+            layout="fill"
+            quality={100}
+            placeholder="blur"
+            blurDataURL={rgbDataURL(238, 210, 182)}
+          />
         </div>
         <address className="contact__address">
           Stiftelsen Maaretta Jaukkuri Foundation

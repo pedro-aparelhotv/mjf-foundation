@@ -7,6 +7,8 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 
 import { useSmoothScroll } from 'hooks/useSmoothScroll'
 
+import { rgbDataURL } from 'utils/color'
+
 export default function ThePlace() {
   useSmoothScroll({
     selector: '.the-place',
@@ -35,6 +37,10 @@ export default function ThePlace() {
                   layout="fill"
                   src="/images/the-place-01.png"
                   alt="the-place-01"
+                  priority
+                  quality={100}
+                  placeholder="blur"
+                  blurDataURL={rgbDataURL(238, 210, 182)}
                 />
               </div>
             </SwiperSlide>
@@ -44,6 +50,10 @@ export default function ThePlace() {
                   layout="fill"
                   src="/images/the-place-02.png"
                   alt="the-place-02"
+                  priority
+                  quality={100}
+                  placeholder="blur"
+                  blurDataURL={rgbDataURL(238, 210, 182)}
                 />
               </div>
             </SwiperSlide>
@@ -79,6 +89,9 @@ export default function ThePlace() {
                   layout="fill"
                   src="/images/the-place-01.png"
                   alt="the-place-01"
+                  quality={100}
+                  placeholder="blur"
+                  blurDataURL={rgbDataURL(238, 210, 182)}
                 />
               </div>
             </SwiperSlide>
@@ -88,6 +101,9 @@ export default function ThePlace() {
                   layout="fill"
                   src="/images/the-place-02.png"
                   alt="the-place-02"
+                  quality={100}
+                  placeholder="blur"
+                  blurDataURL={rgbDataURL(238, 210, 182)}
                 />
               </div>
             </SwiperSlide>

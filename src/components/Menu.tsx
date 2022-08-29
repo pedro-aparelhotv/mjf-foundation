@@ -16,10 +16,7 @@ const Menu = ({ isOpen, setIsOpen }: IMenuProps) => {
   return (
     <div className="menu" data-active={isOpen}>
       <div className="menu__wrapper">
-        <div
-          className="menu__map"
-          // onClick={() => setOpen(state => !state)}
-        >
+        <div className="menu__map">
           <div
             className="menu__map__fold --first"
             style={{ '--order': 1 } as CSSProperties}
