@@ -8,6 +8,14 @@ const nextConfig = {
       use: ["@svgr/webpack"]
     });
 
+    config.module.rules.push({
+      test: /\.(glsl|frag|vert)$/,
+      use: [
+        'raw-loader',
+        'glslify-loader',
+      ]
+    })
+
     return config;
   }
 };

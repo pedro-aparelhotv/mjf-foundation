@@ -45,7 +45,7 @@ const useSmoothScroll = ({
     scroll.current.y = GSAP.utils.interpolate(
       scroll.current.y,
       scroll.current.target,
-      0.001,
+      0.1,
     )
 
     scroll.current.y = scroll.current.y < 0.01 ? 0 : scroll.current.y

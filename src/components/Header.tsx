@@ -14,7 +14,7 @@ const Header = () => {
     setMenuIsOpen(true)
     setTimeout(() => {
       router.push('/')
-    }, 1200)
+    }, 1400)
   }
 
   const pageTitle = router.pathname.slice(1).split('-').join(' ')

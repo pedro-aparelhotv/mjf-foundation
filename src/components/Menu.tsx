@@ -42,7 +42,7 @@ const Menu = ({ isOpen, setIsOpen }: IMenuProps) => {
 
             <div
               className="menu__map__fold --second"
-              style={{ '--order': 2 } as CSSProperties}
+              style={{ '--order': 1 } as CSSProperties}
               data-active={isOpen}
             >
               <div className="menu__map__fold__back --second" />
@@ -71,7 +71,7 @@ const Menu = ({ isOpen, setIsOpen }: IMenuProps) => {
 
                 <div
                   className="menu__map__fold --third"
-                  style={{ '--order': 3 } as CSSProperties}
+                  style={{ '--order': 2 } as CSSProperties}
                   data-active={isOpen}
                 >
                   <div className="menu__map__fold__back --third" />
@@ -91,7 +91,7 @@ const Menu = ({ isOpen, setIsOpen }: IMenuProps) => {
 
                     <div
                       className="menu__map__fold --fourth"
-                      style={{ '--order': 4 } as CSSProperties}
+                      style={{ '--order': 3 } as CSSProperties}
                       data-active={isOpen}
                     >
                       <div className="menu__map__fold__back --fourth" />
@@ -120,7 +120,7 @@ const Menu = ({ isOpen, setIsOpen }: IMenuProps) => {
 
                         <div
                           className="menu__map__fold --fifth"
-                          style={{ '--order': 5 } as CSSProperties}
+                          style={{ '--order': 4 } as CSSProperties}
                           data-active={isOpen}
                         >
                           <div className="menu__map__fold__back --fifth" />

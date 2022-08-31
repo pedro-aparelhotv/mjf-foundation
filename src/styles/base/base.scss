@@ -84,7 +84,7 @@ p {
  *  Focus rule
 */
 :where(button, a, input, textarea, select) {
-  transition: outline-offset 200ms cubic-bezier(1, 0, 0, 1), transform 200ms cubic-bezier(1, 0, 0, 1);
+  transition: outline-offset 200ms cubic-bezier(1, 0, 0, 1);
 
   &:focus {
     outline-style: solid;
@@ -98,9 +98,11 @@ p {
   }
 }
 
-:where(button, [data-button]) {
+:where(button, a, [data-button]) {
+  transition: letter-spacing 200ms ease;
+
   &:hover {
-    transform: scale(1.025);
+    letter-spacing: 0.025em !important;
   }
 }
 
