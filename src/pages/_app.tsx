@@ -1,4 +1,3 @@
-import { AppProps } from 'next/app'
 import { ReactElement } from 'react'
 
 import { UserPreferencesProvider } from 'contexts/UserPreferencesContext'
@@ -8,7 +7,7 @@ import Header from 'components/Header'
 
 import 'styles/index.scss'
 
-function MyApp({ Component, pageProps }: AppProps): ReactElement {
+function MyApp({ Component, pageProps }): ReactElement {
   return (
     <>
       <UserPreferencesProvider>
