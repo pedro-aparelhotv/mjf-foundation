@@ -55,6 +55,7 @@ const Brush = ({ color }: IBrushProps) => {
   })
 
   useEffect(() => {
+    matRef.current.transparent = true
     matRef.current.needsUpdate = true
     matRef.current.uniformsNeedUpdate = true
   }, [])

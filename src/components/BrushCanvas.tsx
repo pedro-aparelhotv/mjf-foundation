@@ -32,6 +32,7 @@ const BrushCanvas = () => {
             canvas,
             preserveDrawingBuffer: true,
             alpha: true,
+            antialias: true,
           })
 
           const color = new THREE.Color(1, 1, 1)
