@@ -18,9 +18,8 @@ interface IUserPreferencesContextData {
   prefersReducedMotion: PrefersReducedMotion
 }
 
-const UserPreferencesContext = createContext<IUserPreferencesContextData>(
-  {} as IUserPreferencesContextData,
-)
+export const UserPreferencesContext =
+  createContext<IUserPreferencesContextData>({} as IUserPreferencesContextData)
 
 interface IUserPreferencesProvider {
   children: ReactNode
@@ -34,9 +33,7 @@ export const UserPreferencesProvider = ({
 }: IUserPreferencesProvider): ReactElement => {
   const [userAgent] = useState<IResult>(() => {
     if (typeof window !== 'undefined') {
-      const data = uaParser(window.navigator.userAgent)
-
-      return data
+      return uaParser(window.navigator.userAgent)
     } else {
       return null
     }

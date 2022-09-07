@@ -3,81 +3,134 @@ import GSAP from 'gsap'
 import { useEffect, useMemo, useRef } from 'react'
 import * as THREE from 'three'
 
+import { useUserPreferences } from 'contexts/UserPreferencesContext'
+
 import fragmentShader from 'assets/shaders/fragmentShader.glsl'
 import vertexShader from 'assets/shaders/vertexShader.glsl'
+
+interface IBrushRef {
+  key: number
+  mesh: THREE.Mesh
+  material: THREE.ShaderMaterial
+}
 
 interface IBrushProps {
   color: number
 }
 
+// const current
+const maxMeshs = 200
+let currentFrame = 0
+
+const defaultValue = Array.from({ length: maxMeshs }, (_, idx) => ({
+  key: idx,
+  mesh: null,
+  material: null,
+}))
+
 const Brush = ({ color }: IBrushProps) => {
+  const { userAgent } = useUserPreferences()
   const { size } = useThree()
+
+  const brushSize = typeof userAgent?.device.type !== 'undefined' ? 30 : 60
+
+  const meshesRef = useRef<IBrushRef[]>(defaultValue)
 
   const cursor = useRef({
     x: 0,
     y: 0,
+    prevX: 0,
+    prevY: 0,
   })
 
-  const meshRef = useRef<THREE.Mesh>()
-  const matRef = useRef<THREE.ShaderMaterial>()
-
   useEffect(() => {
-    const onMouseMove = event => {
-      cursor.current.x = event.clientX
-      cursor.current.y = event.clientY
+    const onMouseMove = (event: globalThis.MouseEvent) => {
+      cursor.current.x = event.clientX - size.width / 2
+      cursor.current.y = size.height / 2 - event.clientY
     }
 
-    window.addEventListener('mousemove', onMouseMove)
+    const onTouchMove = (event: TouchEvent) => {
+      const target = event.targetTouches[0]
+
+      cursor.current.x = target.clientX - size.width / 2
+      cursor.current.y = size.height / 2 - target.clientY
+    }
+
+    if (typeof userAgent.device.type !== 'undefined') {
+      window.addEventListener('touchmove', onTouchMove)
+    } else {
+      window.addEventListener('mousemove', onMouseMove)
+    }
 
     return () => {
-      window.removeEventListener('mousemove', onMouseMove)
+      if (typeof userAgent.device.type !== 'undefined') {
+        window.removeEventListener('touchmove', onTouchMove)
+      } else {
+        window.removeEventListener('mousemove', onMouseMove)
+      }
     }
-  }, [])
+  }, [userAgent, size])
 
   useFrame(() => {
-    const targetX = cursor.current.x - size.width / 2
-    const targetY = size.height / 2 - cursor.current.y
+    const currentIdx = currentFrame % maxMeshs
 
-    meshRef.current.position.x = GSAP.utils.interpolate(
-      meshRef.current.position.x,
-      targetX,
+    const { mesh, material } = meshesRef.current[currentIdx]
+
+    material.uniforms.uOpacity.value = 1.0
+
+    const targetX = GSAP.utils.interpolate(
+      cursor.current.prevX,
+      cursor.current.x,
       0.1,
     )
-    meshRef.current.position.y = GSAP.utils.interpolate(
-      meshRef.current.position.y,
-      targetY,
+    const targetY = GSAP.utils.interpolate(
+      cursor.current.prevY,
+      cursor.current.y,
       0.1,
     )
 
-    const currColor = new THREE.Color(color)
+    mesh.position.x = cursor.current.prevX = targetX
+    mesh.position.y = cursor.current.prevY = targetY
 
-    matRef.current.uniforms.uColor.value = currColor
+    currentFrame++
+
+    const currColor = new THREE.Color(color).convertLinearToSRGB()
+    material.uniforms.uColor.value = currColor
   })
 
   useEffect(() => {
-    matRef.current.transparent = true
-    matRef.current.needsUpdate = true
-    matRef.current.uniformsNeedUpdate = true
+    meshesRef.current.forEach(entry => {
+      entry.material.needsUpdate = true
+      entry.material.uniformsNeedUpdate = true
+    })
   }, [])
 
   const uniforms = useMemo(
     () => ({
       uColor: { value: new THREE.Color(color) },
+      uOpacity: { value: 1.0 },
     }),
     [],
   )
 
   return (
-    <mesh ref={meshRef} position={[0, 0, 0]}>
-      <circleGeometry attach="geometry" args={[50, 64]} />
-      <shaderMaterial
-        ref={matRef}
-        attach="material"
-        fragmentShader={fragmentShader}
-        vertexShader={vertexShader}
-        uniforms={uniforms}
-      />
-    </mesh>
+    <>
+      {meshesRef.current.map((entry, idx) => (
+        <mesh key={entry.key} ref={el => (meshesRef.current[idx].mesh = el)}>
+          <circleGeometry attach="geometry" args={[brushSize, 64]} />
+          <shaderMaterial
+            ref={el => (meshesRef.current[idx].material = el)}
+            attach="material"
+            fragmentShader={fragmentShader}
+            vertexShader={vertexShader}
+            uniforms={uniforms}
+            transparent={true}
+            depthTest={false}
+            depthWrite={false}
+          />
+        </mesh>
+      ))}
+    </>
   )
 }
 

@@ -1,6 +1,9 @@
+import { useContextBridge } from '@react-three/drei'
 import { Canvas } from '@react-three/fiber'
 import { useRouter } from 'next/router'
 import * as THREE from 'three'
+
+import { UserPreferencesContext } from 'contexts/UserPreferencesContext'
 
 import Brush from './Brush'
 import Camera from './Camera'
@@ -24,21 +27,21 @@ const BrushCanvas = () => {
 
   const brushColor = meshColors[index]
 
+  const ContextBridge = useContextBridge(UserPreferencesContext)
+
   return (
     <div className="brush-canvas" data-page={index}>
       <Canvas
         gl={canvas => {
           const renderer = new THREE.WebGLRenderer({
             canvas,
-            preserveDrawingBuffer: true,
+            preserveDrawingBuffer: false,
             alpha: true,
-            antialias: true,
+            antialias: false,
           })
 
           const color = new THREE.Color(1, 1, 1)
           renderer.setClearColor(color, 0.0)
-
-          renderer.autoClearColor = false
 
           router.events.on('routeChangeComplete', () => {
             renderer.clearColor()
@@ -47,8 +50,10 @@ const BrushCanvas = () => {
           return renderer
         }}
       >
-        <Camera />
-        <Brush color={brushColor} />
+        <ContextBridge>
+          <Camera />
+          <Brush color={brushColor} />
+        </ContextBridge>
       </Canvas>
     </div>
   )
