@@ -19,11 +19,10 @@
   --margin-left: 10vh;
   --margin-right: 2.2rem;
   --columns: 4;
-  --transition-duration: 1.4s;
-  --transition-easing-start: cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  --transition-easing-end: cubic-bezier(1.275, 0.32, 0.885, 0.175, );
+  --transition-duration: 1s;
+  --transition-easing-start: ease-out;
+  --transition-easing-end: ease-in;
 
-  transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
 
   * {
     perspective: 700px;
@@ -76,12 +75,12 @@
 
   transition: transform calc(var(--transition-duration) / var(--columns));
   transition-timing-function: var(--transition-easing-start);
-  transition-delay: calc((var(--order) - 1) * var(--transition-duration) / var(--columns));
+  transition-delay: calc((var(--order) - 1) * var(--transition-duration) / var(--columns) / 2);
 
   &[data-active=false] {
     transform: rotate3d(0.0, 1, 0.0, -180deg);
     transition-timing-function: var(--transition-easing-end);
-    transition-delay: calc((var(--columns) - var(--order)) * var(--transition-duration) / var(--columns));
+    transition-delay: calc((var(--columns) - var(--order)) * var(--transition-duration) / var(--columns) / 2);
   }
 }
 

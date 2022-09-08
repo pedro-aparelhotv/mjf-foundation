@@ -1,4 +1,3 @@
-import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { useState } from 'react'
 
@@ -14,7 +13,7 @@ const Header = () => {
     setMenuIsOpen(true)
     setTimeout(() => {
       router.push('/')
-    }, 1400)
+    }, 1000)
   }
 
   const pageTitle = router.pathname.slice(1).split('-').join(' ')
@@ -22,12 +21,10 @@ const Header = () => {
   return (
     <header className="header">
       <div className="header__wrapper">
-        <Link href="/" passHref>
-          <a className="header__link">
-            <LogoIcon />
-            <span className="sr-only">Maretta Jaukkuri Foundation</span>
-          </a>
-        </Link>
+        <a className="header__link" onClick={handleOpenMenu}>
+          <LogoIcon />
+          <span className="sr-only">Maretta Jaukkuri Foundation</span>
+        </a>
 
         <button
           className="header__menu-btn"

@@ -84,18 +84,18 @@ p {
  *  Focus rule
 */
 :where(button, a, input, textarea, select) {
-  transition: outline-offset 200ms cubic-bezier(1, 0, 0, 1);
+  // transition: outline-offset 200ms cubic-bezier(1, 0, 0, 1);
 
-  &:focus {
-    outline-style: solid;
-    outline-width: 2px;
-    outline-color: var(--brand-clr);
-    outline-offset: 0.4rem;
-  }
+  // &:focus {
+  //   // outline-style: solid;
+  //   // outline-width: 2px;
+  //   // outline-color: var(--brand-clr);
+  //   // outline-offset: 0.4rem;
+  // }
 
-  &:active {
-    outline-offset: 0.0rem;
-  }
+  // &:active {
+  //   // outline-offset: 0.0rem;
+  // }
 }
 
 :where(button, a, [data-button]) {

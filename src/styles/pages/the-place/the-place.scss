@@ -36,7 +36,12 @@
   width: 98.4rem;
   height: 65.5rem;
 
-  object-fit: cover;
+  cursor: url('/images/cursor-open-img.png'), auto;
+
+  img {
+    object-fit: cover;
+    object-position: top;
+  }
 }
 
 .the-place__swiper__slide__title,
