@@ -1,7 +1,7 @@
 import GSAP from 'gsap'
 import NormalizeWheel from 'normalize-wheel'
 import Prefix from 'prefix'
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef } from 'react'
 
 import { breakpoints } from 'utils/breakpoints'
 
@@ -21,8 +21,6 @@ const useSmoothScroll = ({
     target: 0,
     scrollLimit: 0,
   })
-
-  const [y, setY] = useState(scroll.current.y)
 
   const onWheel = event => {
     const normalizedWheel = NormalizeWheel(event)
@@ -49,8 +47,6 @@ const useSmoothScroll = ({
     )
 
     scroll.current.y = scroll.current.y < 0.01 ? 0 : scroll.current.y
-
-    setY(scroll.current.y)
 
     if (selector) {
       const scrollingElement = document.querySelector(
@@ -86,8 +82,6 @@ const useSmoothScroll = ({
       window.removeEventListener('resize', onResize)
     }
   }, [selector, onResize])
-
-  return { y }
 }
 
 export { useSmoothScroll }

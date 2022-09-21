@@ -1,9 +1,13 @@
+import { GetStaticProps } from 'next'
+
 import { useSmoothScroll } from 'hooks/useSmoothScroll'
+
+import prismicApi, { getDefaults } from 'services/prismic'
 
 import Figure from 'components/Figure'
 import Section from 'components/Section'
 
-export default function Board() {
+export default function Board({ content }) {
   useSmoothScroll({
     selector: '.board__content.--scrollable',
     disable: false,
@@ -13,6 +17,19 @@ export default function Board() {
     <main className="board">
       <div className="board__wrapper">
         <div className="board__content --scrollable">
+          {content.data?.slices?.map(
+            slice =>
+              slice.slice_type === 'section' && (
+                <Section
+                  key={slice.id}
+                  data={{
+                    title: slice.primary.title,
+                    paragraph: slice.primary.text,
+                    fellows: slice.items,
+                  }}
+                />
+              ),
+          )}
           <Section
             data={{
               title: 'HONORARY BOARD',
@@ -46,15 +63,25 @@ export default function Board() {
         </div>
 
         <div className="board__content">
-          <Figure
-            data={{
-              url: '/images/board.png',
-              caption:
-                'The vision of MJF would not be possible without the kind support of many artists including, Kari Cavén, Tony Cragg, Dorothy Cross, A K Dolven, Anne-Karin Furunes, Antony Gormley, Dan Graham, Alfredo Jaar, Anish Kapoor, Cildo Meireles, Esko Männikkö, Bjørn Nørgaard,  Markus Raetz, and Gediminas Urbonas.',
-            }}
-          />
+          {content.data?.image && (
+            <Figure
+              data={{
+                url: content.data.image.url,
+                caption: content.data.image.alt,
+              }}
+            />
+          )}
         </div>
       </div>
     </main>
   )
+}
+
+export const getStaticProps: GetStaticProps = async ctx => {
+  const defaults = await getDefaults()
+  const data = await prismicApi.getSingle('board_page')
+
+  return {
+    props: { defaults, content: data },
+  }
 }

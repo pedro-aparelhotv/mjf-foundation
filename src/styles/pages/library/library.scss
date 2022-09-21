@@ -14,11 +14,15 @@
   @extend %space-between;
   align-items: flex-start;
   flex-direction: column;
-}
 
-.library__title {
-  @extend %paragraph-57;
-  max-width: 36ch;
+  h1 {
+    @extend %paragraph-57;
+    max-width: 36ch;
+
+    em {
+      font-style: italic;
+    }
+  }
 }
 
 .library__link {

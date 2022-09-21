@@ -1,10 +1,11 @@
-import Image from 'next/image'
+import { PrismicRichText } from '@prismicio/react'
+import { GetStaticProps } from 'next'
 
 import { useSmoothScroll } from 'hooks/useSmoothScroll'
 
-import { rgbDataURL } from 'utils/color'
+import prismicApi, { getDefaults } from 'services/prismic'
 
-export default function Contact() {
+export default function Contact({ content }) {
   useSmoothScroll({
     selector: '.contact',
     disable: false,
@@ -13,25 +14,17 @@ export default function Contact() {
   return (
     <main className="contact">
       <div className="contact__wrapper">
-        <div className="contact__img">
-          <Image
-            src="/images/contact.png"
-            alt="map"
-            layout="fill"
-            quality={100}
-            placeholder="blur"
-            blurDataURL={rgbDataURL(238, 210, 182)}
-          />
-        </div>
-        <address className="contact__address">
-          Stiftelsen Maaretta Jaukkuri Foundation
-          <br /> Haverringen 954, 8360 Bøstad Lofoten, Norway <br />
-          <br /> Annika Wiström (director)
-          <br /> annika.wistrom [a] gmail.com
-          <br /> tel 0047 952 99 466
-          <br /> Registered in Norway: 91402006
-        </address>
+        <PrismicRichText field={content.data.content} />
       </div>
     </main>
   )
+}
+
+export const getStaticProps: GetStaticProps = async ctx => {
+  const defaults = await getDefaults()
+  const data = await prismicApi.getSingle('contact_page')
+
+  return {
+    props: { defaults, content: data },
+  }
 }

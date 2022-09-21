@@ -1,0 +1,26 @@
+{
+  "id": "library",
+  "label": "Library Page",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Main": {
+      "summary": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Summary",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "single": "em,heading1"
+        }
+      },
+      "link_text": {
+        "type": "Text",
+        "config": {
+          "label": "Link Text",
+          "placeholder": ""
+        }
+      }
+    }
+  }
+}

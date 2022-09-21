@@ -1,0 +1,47 @@
+{
+  "id": "fellows",
+  "label": "Fellows Page",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Main": {
+      "title": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Title",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "single": "heading1,em"
+        }
+      },
+      "year_view_button_text": {
+        "type": "Text",
+        "config": {
+          "label": "Year View Button Text",
+          "placeholder": ""
+        }
+      },
+      "year_view_active_button_text": {
+        "type": "Text",
+        "config": {
+          "label": "Year VIew Active Button Text",
+          "placeholder": ""
+        }
+      },
+      "list_view_button_text": {
+        "type": "Text",
+        "config": {
+          "label": "List View Button Text",
+          "placeholder": ""
+        }
+      },
+      "list_view_active_button_text": {
+        "type": "Text",
+        "config": {
+          "label": "List View Active Button Text",
+          "placeholder": ""
+        }
+      }
+    }
+  }
+}

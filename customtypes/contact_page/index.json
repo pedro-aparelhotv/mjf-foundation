@@ -1,0 +1,19 @@
+{
+  "id": "contact_page",
+  "label": "Contact Page",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Main": {
+      "content": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Content",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "multi": "paragraph,em,hyperlink,image"
+        }
+      }
+    }
+  }
+}

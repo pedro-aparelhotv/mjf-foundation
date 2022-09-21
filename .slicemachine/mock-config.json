@@ -1,0 +1,60 @@
+{
+  "_cts": {
+    "fellow": {
+      "content": {
+        "config": {
+          "patternType": "STORY",
+          "blocks": 1
+        }
+      }
+    },
+    "fellows": {},
+    "event": {
+      "summary": {
+        "config": {
+          "patternType": "PARAGRAPH",
+          "blocks": 1
+        }
+      },
+      "content": {
+        "config": {
+          "patternType": "STORY",
+          "blocks": 1
+        }
+      }
+    },
+    "board_page": {},
+    "library": {
+      "summary": {
+        "config": {
+          "patternType": "HEADING",
+          "blocks": 1
+        }
+      }
+    },
+    "contact_page": {
+      "content": {
+        "config": {
+          "patternType": "PARAGRAPH",
+          "blocks": 1
+        }
+      }
+    },
+    "navigation": {
+      "list": {}
+    },
+    "news": {},
+    "the_foundation": {}
+  },
+  "slices": {
+    "Section": {
+      "board": {
+        "primary": {},
+        "items": {}
+      },
+      "default": {
+        "primary": {}
+      }
+    }
+  }
+}

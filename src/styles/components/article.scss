@@ -32,22 +32,22 @@
   flex: 1;
   padding-block: 2.9rem 3.2rem;
   padding-inline: 2.2rem;
-}
 
-.article__title {
-  @extend %title-60;
+  h1 {
+    @extend %title-60;
 
-  >span {
-    font-style: italic;
+    em {
+      font-style: italic;
+    }
   }
-}
 
-.article__subtitle {
-  @extend %title-45;
-  max-width: 32ch;
+  p {
+    @extend %title-45;
+    max-width: 32ch;
 
-  >span {
-    font-style: italic;
+    em {
+      font-style: italic;
+    }
   }
 }
 

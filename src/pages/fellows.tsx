@@ -1,9 +1,14 @@
 /* eslint-disable no-unused-vars */
+import { PrismicRichText } from '@prismicio/react'
+import { format } from 'date-fns'
+import { GetStaticProps } from 'next'
 import { useState } from 'react'
 
 import { useSmoothScroll } from 'hooks/useSmoothScroll'
 
-export default function Fellows() {
+import prismicApi, { getDefaults } from 'services/prismic'
+
+export default function Fellows({ content, fellows }) {
   useSmoothScroll({
     selector: '.fellows',
     disable: false,
@@ -29,15 +34,7 @@ export default function Fellows() {
   return (
     <main className="fellows">
       <div className="fellows__wrapper">
-        <h1 className="fellows__title">
-          <span>The Maaretta Jaukkuri Foundation – MJF –</span> invites 4 - 5{' '}
-          <span>Fellows</span> each year from various fields in the arts,
-          sciences or philosophy, or{' '}
-          <span>any field that encourages new paths of thinking</span> . The
-          Fellows are selected by the Board to spend up to 2 months in{' '}
-          <span>The Place in Lofoten</span>. MJF also presents public seminars
-          and other <span>events</span>.
-        </h1>
+        {content.data?.title && <PrismicRichText field={content.data.title} />}
 
         <section className="fellows__table">
           <header className="fellows__table__options">
@@ -49,7 +46,9 @@ export default function Fellows() {
                   onClick={handleClickOnSelectAYear}
                   data-active={isSelectingYear}
                 >
-                  {isSelectingYear ? 'Seeing by year' : 'See by year'}
+                  {isSelectingYear
+                    ? content.data.year_view_active_button_text
+                    : content.data.year_view_button_text}
                 </button>
               </li>
               <li className="fellows__table__options__item">
@@ -59,11 +58,14 @@ export default function Fellows() {
                   onClick={handleClickOnSeeAll}
                   data-active={!isSelectingYear}
                 >
-                  {!isSelectingYear ? 'Seeing list' : 'See list'}
+                  {!isSelectingYear
+                    ? content.data.list_view_active_button_text
+                    : content.data.list_view_button_text}
                 </button>
               </li>
             </ul>
           </header>
+
           <div className="fellows__table__content">
             {isSelectingYear ? (
               <ul className="fellows__table__years-list">
@@ -106,17 +108,19 @@ export default function Fellows() {
               </ul>
             ) : (
               <ul className="fellows__table__list">
-                <li className="fellows__table__item">
-                  <article className="fellows__article">
-                    <h2 className="fellows__article__title">
-                      Monica Winther, Belgium
-                    </h2>
+                {fellows.map(fellow => (
+                  <li key={fellow.id} className="fellows__table__item">
+                    <article className="fellows__article">
+                      <h2 className="fellows__article__title">
+                        {fellow.data.name}, {fellow.data.country}
+                      </h2>
 
-                    <span className="fellows__article__len-of-stay">
-                      Jul-Sep 2022
-                    </span>
-                  </article>
-                </li>
+                      <span className="fellows__article__len-of-stay">
+                        {fellow.duration}
+                      </span>
+                    </article>
+                  </li>
+                ))}
               </ul>
             )}
           </div>
@@ -124,4 +128,28 @@ export default function Fellows() {
       </div>
     </main>
   )
+}
+
+export const getStaticProps: GetStaticProps = async ctx => {
+  const defaults = await getDefaults()
+  const data = await prismicApi.getSingle('fellows')
+  let fellows = await prismicApi.getAllByType('fellow')
+
+  fellows = fellows.map(fellow => {
+    const startMonth = format(new Date(fellow.data.start_date), 'MMM')
+    const startYear = format(new Date(fellow.data.start_date), 'y')
+
+    const endMonth = format(new Date(fellow.data.start_date), 'MMM')
+    const endYear = format(new Date(fellow.data.start_date), 'y')
+
+    const duration =
+      Number(endYear) > Number(startYear)
+        ? `${startMonth} ${startYear} — ${endMonth} ${endYear}`
+        : `${startMonth} — ${endMonth} ${endYear}`
+    return { ...fellow, duration }
+  })
+
+  return {
+    props: { defaults, content: data, fellows },
+  }
 }

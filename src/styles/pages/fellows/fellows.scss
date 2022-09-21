@@ -13,6 +13,16 @@
   @extend %space-between;
   align-items: flex-start;
   flex-direction: column;
+
+  >h1 {
+    @extend %paragraph-57;
+    max-width: 35ch;
+
+    >em {
+      font-style: italic;
+    }
+  }
+
 }
 
 

@@ -1,0 +1,41 @@
+{
+  "id": "mock-doc-id",
+  "url": null,
+  "type": "fellow",
+  "href": null,
+  "tags": [],
+  "first_publication_date": "1970-01-01T00:00:01+0000",
+  "last_publication_date": "1970-01-01T00:00:01+0000",
+  "slugs": [],
+  "linked_documents": [],
+  "lang": "en-us",
+  "alternate_languages": [],
+  "data": {
+    "name": "arrange",
+    "country": "pan",
+    "start_date": "2012-05-02",
+    "end_date": "2016-10-14",
+    "content": [
+      {
+        "type": "heading1",
+        "text": "Complete",
+        "spans": []
+      },
+      {
+        "type": "image",
+        "url": "https://images.unsplash.com/photo-1491975474562-1f4e30bc9468",
+        "alt": null,
+        "copyright": null,
+        "dimensions": {
+          "width": 900,
+          "height": 500
+        }
+      },
+      {
+        "type": "paragraph",
+        "text": "Sit culpa nostrud nostrud elit sunt ex consectetur adipisicing pariatur amet adipisicing. Do ipsum minim ut cupidatat Lorem consequat non. Ex do culpa laboris magna irure non occaecat.",
+        "spans": []
+      }
+    ]
+  }
+}

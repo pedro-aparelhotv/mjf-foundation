@@ -1,0 +1,38 @@
+{
+  "id": "mock-doc-id",
+  "url": null,
+  "type": "news",
+  "href": null,
+  "tags": [],
+  "first_publication_date": "1970-01-01T00:00:01+0000",
+  "last_publication_date": "1970-01-01T00:00:01+0000",
+  "slugs": [],
+  "linked_documents": [],
+  "lang": "en-us",
+  "alternate_languages": [],
+  "data": {
+    "thumbnail": {
+      "dimensions": {
+        "width": 900,
+        "height": 500
+      },
+      "alt": null,
+      "copyright": null,
+      "url": "https://images.unsplash.com/photo-1571126770897-2d612d1f7b89"
+    },
+    "summary": [
+      {
+        "type": "paragraph",
+        "text": "Commodo culpa ipsum quis est incididunt magna sunt reprehenderit voluptate laboris et esse enim laboris.",
+        "spans": []
+      }
+    ],
+    "content": [
+      {
+        "type": "paragraph",
+        "text": "Est eu consectetur in commodo officia non anim. Commodo irure incididunt amet mollit occaecat velit aute aliqua incididunt esse enim nulla irure eiusmod. Do tempor anim do laboris sunt commodo elit enim occaecat veniam ad nisi.",
+        "spans": []
+      }
+    ]
+  }
+}

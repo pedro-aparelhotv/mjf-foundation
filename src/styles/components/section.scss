@@ -2,6 +2,16 @@
   --gap: 2.8rem;
   @extend %flex;
   flex-direction: column;
+
+  ul {
+
+    li,
+    button {
+      @extend %paragraph-31;
+      white-space: pre-line;
+      text-transform: capitalize;
+    }
+  }
 }
 
 .section__title {

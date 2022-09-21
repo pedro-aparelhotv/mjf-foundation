@@ -9,6 +9,20 @@
   padding-inline-start: 11rem;
 
   padding-inline-end: 2rem;
+
+  img {
+    @include ratio(862, 655);
+    position: relative;
+
+    min-width: 86.2rem;
+    width: 86.2rem;
+    height: 65.5rem;
+  }
+
+  p {
+    margin-block-start: 4.2rem;
+    @extend %paragraph-40;
+  }
 }
 
 .contact__img {

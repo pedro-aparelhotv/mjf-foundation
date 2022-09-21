@@ -1,22 +1,28 @@
-export default function Library() {
+import { PrismicRichText } from '@prismicio/react'
+import { GetStaticProps } from 'next'
+
+import prismicApi, { getDefaults } from 'services/prismic'
+
+export default function Library({ content }) {
   return (
     <main className="library">
       <div className="library__wrapper">
-        <h1 className="library__title">
-          <span>The Maaretta Jaukkuri Foundation – MJF –</span> invites 4-5
-          <span>Fellows</span> each year from various fields in the arts,
-          sciences or philosophy, or{' '}
-          <span>any field that encourages new paths of thinking</span> . The
-          Fellows are selected by the Board to spend up to 2 months in{' '}
-          <span>The Place in Lofoten</span>. MJF also presents public seminars
-          and other <span>events</span>.
-        </h1>
+        <PrismicRichText field={content.data.summary} />
 
         <a className="library__link">
-          <span>See Library Index</span>
+          <span>{content?.data?.link_text ?? ''}</span>
           <span>External Link</span>
         </a>
       </div>
     </main>
   )
+}
+
+export const getStaticProps: GetStaticProps = async ctx => {
+  const defaults = await getDefaults()
+  const data = await prismicApi.getSingle('library')
+
+  return {
+    props: { defaults, content: data },
+  }
 }

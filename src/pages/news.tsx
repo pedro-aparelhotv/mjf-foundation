@@ -1,13 +1,14 @@
+import { GetStaticProps } from 'next'
 import { useState } from 'react'
 
 import { useSmoothScroll } from 'hooks/useSmoothScroll'
 
+import prismicApi, { getDefaults } from 'services/prismic'
+
 import Article from 'components/Article'
 import ArticleModal from 'components/ArticleModal'
 
-import news from 'assets/news.json'
-
-export default function News() {
+export default function News({ content }) {
   const [isOpen, setIsOpen] = useState(false)
 
   useSmoothScroll({
@@ -24,11 +25,11 @@ export default function News() {
       <main className="news">
         <div className="news__wrapper">
           <ul className="news__list">
-            {news.map(entry => (
-              <li className="news__item" key={entry.id}>
+            {content.map(news => (
+              <li className="news__item" key={news.id}>
                 <Article
                   data={{
-                    ...entry,
+                    ...news.data,
                   }}
                   handleOpenArticle={handleOpenArticle}
                 />
@@ -41,4 +42,13 @@ export default function News() {
       <ArticleModal setIsOpen={setIsOpen} isOpen={isOpen} />
     </>
   )
+}
+
+export const getStaticProps: GetStaticProps = async ctx => {
+  const defaults = await getDefaults()
+  const data = await prismicApi.getAllByType('news')
+
+  return {
+    props: { defaults, content: data },
+  }
 }
