@@ -25,7 +25,7 @@ export default function Board({ content }) {
                   data={{
                     title: slice.primary.title,
                     paragraph: slice.primary.text,
-                    fellows: slice.items,
+                    // fellows: slice.items,
                   }}
                 />
               ),
