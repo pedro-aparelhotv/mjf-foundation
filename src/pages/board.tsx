@@ -30,36 +30,6 @@ export default function Board({ content }) {
                 />
               ),
           )}
-          <Section
-            data={{
-              title: 'HONORARY BOARD',
-              paragraph: `A K Dolven \nAntony Gormeley`,
-            }}
-          />
-          <Section
-            data={{
-              title: 'Board',
-              paragraph: `Ase Aulie Michelet (Chair) \n Maaretta Jaukkuri \n Katya Garcia-Antón`,
-            }}
-          />
-          <Section
-            data={{
-              title: 'Advisory Board',
-              paragraph: `Thora Dolven Kalke \nLeevi Haapala \nJumana Manna \nHilde Methi \nYoshiaki Nishino \n Gediminas Urbonas`,
-            }}
-          />
-          <Section
-            data={{
-              title: 'Director',
-              paragraph: `Annika Wistrom (2018 — present) \nAudhild Dahlstrom (2015 — 2018)`,
-            }}
-          />
-          <Section
-            data={{
-              title: 'Supporters',
-              paragraph: `Annika Wistrom (2018 — present) \nAudhild Dahlstrom (2015 — 2018)`,
-            }}
-          />
         </div>
 
         <div className="board__content">
