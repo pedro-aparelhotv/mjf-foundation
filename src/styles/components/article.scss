@@ -19,8 +19,12 @@
   min-height: 27rem;
 
   border-right: 1px solid var(--border-01-clr);
+  object-fit: cover;
 
+  img {
+    object-fit: cover;
 
+  }
 }
 
 .article__info {

@@ -43,7 +43,14 @@
     "navigation": {
       "list": {}
     },
-    "news": {},
+    "news": {
+      "content": {
+        "config": {
+          "patternType": "PARAGRAPH",
+          "blocks": 1
+        }
+      }
+    },
     "the_foundation": {}
   },
   "slices": {

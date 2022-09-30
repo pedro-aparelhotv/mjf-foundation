@@ -90,6 +90,10 @@
   margin-inline: 6rem;
   width: 73.2rem;
   min-height: 58.6rem;
+
+  img {
+    object-fit: cover;
+  }
 }
 
 .article-modal__paragraph {
