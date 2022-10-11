@@ -7,6 +7,8 @@
   height: 100%;
 
   pointer-events: all;
+  transition: all 1s linear;
+  transition-delay: 2s;
 
   &[data-active=false] {
     pointer-events: none;
@@ -77,11 +79,24 @@
   transition-timing-function: var(--transition-easing-start);
   transition-delay: calc((var(--order) - 1) * var(--transition-duration) / var(--columns) / 2);
 
+  .menu__link {
+    transition-delay: calc((var(--order) - 1) * var(--transition-duration) / var(--columns) / 2);
+  }
+
   &[data-active=false] {
     transform: rotate3d(0.0, 1, 0.0, -180deg);
     transition-timing-function: var(--transition-easing-end);
     transition-delay: calc((var(--columns) - var(--order)) * var(--transition-duration) / var(--columns) / 2);
+
+    .menu__link {
+      opacity: 0;
+      transform: translateY(6rem);
+      transition-delay: 1s;
+
+    }
   }
+
+
 }
 
 .menu__map__fold__front {
@@ -140,7 +155,13 @@
 }
 
 .menu__link {
+  --transition-duration: 1.4s;
+
   @extend %title-32;
+
+  transition: 0.3s;
+  transition-timing-function: var(--transition-easing-start);
+
 
   >span {
     margin-inline-end: 0.4rem;

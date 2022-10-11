@@ -44,7 +44,15 @@
       "list": {}
     },
     "news": {},
-    "the_foundation": {}
+    "the_foundation": {},
+    "visitors_log": {
+      "content": {
+        "config": {
+          "patternType": "PARAGRAPH",
+          "blocks": 1
+        }
+      }
+    }
   },
   "slices": {
     "Section": {

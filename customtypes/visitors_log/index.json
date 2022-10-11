@@ -1,0 +1,36 @@
+{
+  "id": "visitors_log",
+  "label": "Visitors Log",
+  "repeatable": true,
+  "status": true,
+  "json": {
+    "Main": {
+      "content": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Content",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "multi": "paragraph,strong,em,hyperlink,image"
+        }
+      },
+      "fellow": {
+        "type": "Link",
+        "config": {
+          "label": "Fellow",
+          "select": "document",
+          "customtypes": [
+            "fellow"
+          ]
+        }
+      },
+      "created_at": {
+        "type": "Date",
+        "config": {
+          "label": "Created At",
+          "placeholder": ""
+        }
+      }
+    }
+  }
+}

@@ -7,8 +7,11 @@ const prismicApi = Prismic.createClient(process.env.PRISMIC_ENDPOINT, {
 async function getDefaults() {
   const navigation = await prismicApi.getSingle('navigation')
   const meta = await prismicApi.getSingle('meta')
+  const visitorsLog = await prismicApi.getAllByType('visitors_log', {
+    fetchLinks: ['fellow.name'],
+  })
 
-  return { navigation, meta }
+  return { navigation, meta, visitorsLog }
 }
 
 export { getDefaults }

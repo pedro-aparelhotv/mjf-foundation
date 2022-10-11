@@ -34,6 +34,7 @@ const Menu = ({ isOpen, setIsOpen }: IMenuProps) => {
                   className="menu__link"
                   onClick={handleClickOnLink}
                   data-link="the-foundation"
+                  style={{ '--order': 1 } as CSSProperties}
                 >
                   <span>01</span>The Foundation
                 </a>
@@ -54,6 +55,7 @@ const Menu = ({ isOpen, setIsOpen }: IMenuProps) => {
                       className="menu__link"
                       onClick={handleClickOnLink}
                       data-link="the-place"
+                      style={{ '--order': 2 } as CSSProperties}
                     >
                       <span>02</span>The Place
                     </a>
@@ -63,6 +65,7 @@ const Menu = ({ isOpen, setIsOpen }: IMenuProps) => {
                       className="menu__link"
                       onClick={handleClickOnLink}
                       data-link="news"
+                      style={{ '--order': 3 } as CSSProperties}
                     >
                       <span>03</span>News
                     </a>
@@ -83,6 +86,7 @@ const Menu = ({ isOpen, setIsOpen }: IMenuProps) => {
                           className="menu__link"
                           onClick={handleClickOnLink}
                           data-link="fellows"
+                          style={{ '--order': 4 } as CSSProperties}
                         >
                           <span>04</span>Fellows
                         </a>
@@ -103,6 +107,7 @@ const Menu = ({ isOpen, setIsOpen }: IMenuProps) => {
                               className="menu__link"
                               onClick={handleClickOnLink}
                               data-link="events"
+                              style={{ '--order': 5 } as CSSProperties}
                             >
                               <span>05</span>Events
                             </a>
@@ -112,6 +117,7 @@ const Menu = ({ isOpen, setIsOpen }: IMenuProps) => {
                               className="menu__link"
                               onClick={handleClickOnLink}
                               data-link="board"
+                              style={{ '--order': 6 } as CSSProperties}
                             >
                               <span>06</span>Board
                             </a>
@@ -132,6 +138,7 @@ const Menu = ({ isOpen, setIsOpen }: IMenuProps) => {
                                   className="menu__link"
                                   onClick={handleClickOnLink}
                                   data-link="library"
+                                  style={{ '--order': 7 } as CSSProperties}
                                 >
                                   <span>07</span>Library
                                 </a>
@@ -141,6 +148,7 @@ const Menu = ({ isOpen, setIsOpen }: IMenuProps) => {
                                   className="menu__link"
                                   onClick={handleClickOnLink}
                                   data-link="contact"
+                                  style={{ '--order': 8 } as CSSProperties}
                                 >
                                   <span>08</span>Contact
                                 </a>

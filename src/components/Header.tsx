@@ -4,8 +4,16 @@ import { useState } from 'react'
 import LogoIcon from 'assets/logo.svg'
 
 import Menu from './Menu'
+import VisitorsLog from './VisitorsLog'
 
-const Header = () => {
+interface IHeaderProps {
+  content: {
+    navigation: any[]
+    visitorsLog: any[]
+  }
+}
+
+const Header = ({ content }: IHeaderProps) => {
   const router = useRouter()
   const [menuIsOpen, setMenuIsOpen] = useState(router.pathname.slice(1) === '')
 
@@ -17,6 +25,10 @@ const Header = () => {
   }
 
   const pageTitle = router.pathname.slice(1).split('-').join(' ')
+
+  const { visitorsLog, navigation } = content
+
+  console.log(content)
 
   return (
     <header className="header">
@@ -35,7 +47,13 @@ const Header = () => {
           <div className="header__menu-btn__icon" />
         </button>
 
-        <Menu isOpen={menuIsOpen} setIsOpen={setMenuIsOpen} />
+        <VisitorsLog content={visitorsLog} />
+
+        <Menu
+          content={navigation}
+          isOpen={menuIsOpen}
+          setIsOpen={setMenuIsOpen}
+        />
       </div>
     </header>
   )
