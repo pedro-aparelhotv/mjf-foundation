@@ -18,7 +18,7 @@ interface IHeaderProps {
 const Header = ({ content }: IHeaderProps) => {
   const router = useRouter()
   const [menuIsOpen, setMenuIsOpen] = useState(router.pathname.slice(1) === '')
-  const [visitorsLogIsOpen, setVisitorsLogIsOpen] = useState(true)
+  const [visitorsLogIsOpen, setVisitorsLogIsOpen] = useState(false)
 
   const handleOpenMenu = () => {
     setMenuIsOpen(true)
