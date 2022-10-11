@@ -10,15 +10,19 @@ import ArticleModal from 'components/ArticleModal'
 
 export default function News({ content }) {
   const [isOpen, setIsOpen] = useState(false)
+  const [articleOpened, setArticleOpened] = useState(null)
 
   useSmoothScroll({
     selector: '.news',
     disable: isOpen,
   })
 
-  const handleOpenArticle = () => {
+  const handleOpenArticle = (articleId: string) => {
+    setArticleOpened(articleId)
     setIsOpen(true)
   }
+
+  const articleOpenedData = content.find(news => news.id === articleOpened)
 
   return (
     <>
@@ -31,7 +35,7 @@ export default function News({ content }) {
                   data={{
                     ...news.data,
                   }}
-                  handleOpenArticle={handleOpenArticle}
+                  handleOpenArticle={() => handleOpenArticle(news.id)}
                 />
               </li>
             ))}
@@ -39,7 +43,11 @@ export default function News({ content }) {
         </div>
       </main>
 
-      <ArticleModal setIsOpen={setIsOpen} isOpen={isOpen} />
+      <ArticleModal
+        setIsOpen={setIsOpen}
+        isOpen={isOpen}
+        content={articleOpenedData}
+      />
     </>
   )
 }

@@ -43,9 +43,9 @@
     "navigation": {
       "list": {}
     },
-    "news": {},
     "the_foundation": {},
-    "visitors_log": {
+    "visitors_log": {},
+    "news": {
       "content": {
         "config": {
           "patternType": "PARAGRAPH",
