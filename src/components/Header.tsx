@@ -1,5 +1,7 @@
 import { useRouter } from 'next/router'
 import { useState } from 'react'
+import { IPrismicCTVisitorsLog } from 'types/PrismicCollectionTypes'
+import { IPrismicSTNavigation } from 'types/PrismisSingleType'
 
 import LogoIcon from 'assets/logo.svg'
 
@@ -8,14 +10,15 @@ import VisitorsLog from './VisitorsLog'
 
 interface IHeaderProps {
   content: {
-    navigation: any[]
-    visitorsLog: any[]
+    navigation: IPrismicSTNavigation
+    visitorsLog: IPrismicCTVisitorsLog[]
   }
 }
 
 const Header = ({ content }: IHeaderProps) => {
   const router = useRouter()
   const [menuIsOpen, setMenuIsOpen] = useState(router.pathname.slice(1) === '')
+  const [visitorsLogIsOpen, setVisitorsLogIsOpen] = useState(true)
 
   const handleOpenMenu = () => {
     setMenuIsOpen(true)
@@ -27,8 +30,6 @@ const Header = ({ content }: IHeaderProps) => {
   const pageTitle = router.pathname.slice(1).split('-').join(' ')
 
   const { visitorsLog, navigation } = content
-
-  console.log(content)
 
   return (
     <header className="header">
@@ -47,12 +48,17 @@ const Header = ({ content }: IHeaderProps) => {
           <div className="header__menu-btn__icon" />
         </button>
 
-        <VisitorsLog content={visitorsLog} />
-
         <Menu
           content={navigation}
           isOpen={menuIsOpen}
           setIsOpen={setMenuIsOpen}
+          setVisitorsLogIsOpen={setVisitorsLogIsOpen}
+        />
+
+        <VisitorsLog
+          content={visitorsLog}
+          isOpen={visitorsLogIsOpen}
+          setIsOpen={setVisitorsLogIsOpen}
         />
       </div>
     </header>

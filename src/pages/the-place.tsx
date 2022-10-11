@@ -17,8 +17,10 @@ import { rgbDataURL } from 'utils/color'
 
 export default function ThePlace({ content }) {
   const [isOpenSlideFullscreen, setIsOpenSlideFullscreen] = useState(false)
+  const [selectedCarousel, setSelectedCarousel] = useState(null)
 
-  const handleClickOnSlide = () => {
+  const handleClickOnSlide = carousel => {
+    setSelectedCarousel(carousel)
     setIsOpenSlideFullscreen(true)
   }
 
@@ -51,7 +53,7 @@ export default function ThePlace({ content }) {
                     <SwiperSlide
                       key={gallery.url}
                       className="the-place__swiper__slide"
-                      onClick={handleClickOnSlide}
+                      onClick={() => handleClickOnSlide(carousel)}
                     >
                       <div className="the-place__swiper__slide__img">
                         <Image
@@ -81,6 +83,7 @@ export default function ThePlace({ content }) {
       </main>
 
       <SlideModal
+        content={selectedCarousel}
         isOpen={isOpenSlideFullscreen}
         closeModal={() => setIsOpenSlideFullscreen(false)}
       />

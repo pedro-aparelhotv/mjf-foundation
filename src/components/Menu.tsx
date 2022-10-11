@@ -1,14 +1,22 @@
 import Link from 'next/link'
 import { CSSProperties } from 'react'
+import { IPrismicSTNavigation } from 'types/PrismisSingleType'
 
 import LogoIcon from 'assets/logo.svg'
 
 interface IMenuProps {
+  content: IPrismicSTNavigation
   isOpen: boolean
   setIsOpen: (state: boolean) => void
+  setVisitorsLogIsOpen: (state: boolean) => void
 }
 
-const Menu = ({ isOpen, setIsOpen }: IMenuProps) => {
+const Menu = ({
+  content,
+  isOpen,
+  setIsOpen,
+  setVisitorsLogIsOpen,
+}: IMenuProps) => {
   const handleClickOnLink = () => {
     setIsOpen(false)
   }
@@ -39,6 +47,16 @@ const Menu = ({ isOpen, setIsOpen }: IMenuProps) => {
                   <span>01</span>The Foundation
                 </a>
               </Link>
+
+              <div className="menu__footer" style={{ left: '0' }}>
+                <button
+                  className="menu__tag"
+                  type="button"
+                  onClick={() => setVisitorsLogIsOpen(true)}
+                >
+                  <span>Visitors log</span>
+                </button>
+              </div>
             </div>
 
             <div
@@ -158,7 +176,14 @@ const Menu = ({ isOpen, setIsOpen }: IMenuProps) => {
                                 <div className="menu__tag">
                                   <span>winter</span>
                                 </div>
-                                <a className="menu__tag">instagram</a>
+                                <a
+                                  className="menu__tag"
+                                  href={content.data.instagram.url}
+                                  target="_blank"
+                                  rel="noreferrer"
+                                >
+                                  instagram
+                                </a>
                               </div>
                             </div>
                           </div>

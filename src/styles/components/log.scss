@@ -1,0 +1,24 @@
+.log {
+  --gap: 3.2rem;
+  @extend %flex;
+  flex-direction: column;
+  border-top: 0.1rem solid var(--border-01-clr);
+  padding-block: 1.8rem;
+}
+
+.log__content {
+  @extend %paragraph-24;
+}
+
+.log__info {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+}
+
+.log__paragraph {
+  @extend %paragraph-14;
+
+  &:nth-child(3) {
+    justify-self: flex-end;
+  }
+}

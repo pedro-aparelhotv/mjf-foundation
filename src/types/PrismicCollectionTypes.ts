@@ -1,5 +1,7 @@
 // CT for Collection Type
 
+import { RTNode } from '@prismicio/types'
+
 export interface IPrismicCTFellow {
   data: {
     name: string
@@ -7,9 +9,12 @@ export interface IPrismicCTFellow {
 }
 
 export interface IPrismicCTVisitorsLog {
+  id: string
+  uid: string
   data: {
-    content: any[]
+    content: [] | [RTNode, ...RTNode[]]
     created_at: string
     fellow: IPrismicCTFellow
+    id: string
   }
 }

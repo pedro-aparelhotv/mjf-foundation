@@ -1,4 +1,5 @@
 import { PrismicRichText } from '@prismicio/react'
+import { RTNode } from '@prismicio/types'
 import Image from 'next/image'
 
 import { rgbDataURL } from 'utils/color'
@@ -8,7 +9,7 @@ interface IArticleModalProps {
   setIsOpen: (state: boolean) => void
   content?: {
     data: {
-      content: []
+      content: [] | [RTNode, ...RTNode[]]
     }
   }
 }
@@ -17,8 +18,6 @@ const ArticleModal = ({ isOpen, setIsOpen, content }: IArticleModalProps) => {
   const handleClose = () => {
     setIsOpen(false)
   }
-
-  console.log(content)
 
   return (
     <section className="article-modal" data-open={isOpen} onClick={handleClose}>
