@@ -15,6 +15,42 @@
 
   width: 100%;
   position: relative;
+
+  @include media("<phone") {
+    padding-block-end: 3.6rem;
+  
+    &[data-page="the-foundation"] {
+      background: linear-gradient(#F2F2EC, 90%, transparent);
+    }
+
+    &[data-page="the-place"] {
+      background: linear-gradient(#E7E7E7, 90%, transparent);
+    }
+
+    &[data-page="news"] {
+      background: linear-gradient(#E8EADF, 90%, transparent);
+    }
+
+    &[data-page="fellows"] {
+      background: linear-gradient(#F9F1E1, 90%, transparent);
+    }
+
+    &[data-page="events"] {
+      background: linear-gradient(#F3E9E9, 90%, transparent);
+    }
+
+    &[data-page="board"] {
+      background: linear-gradient(#EFF4F4, 90%, transparent);
+    }
+
+    &[data-page="library"] {
+      background: linear-gradient(#E8E3BE, 90%, transparent);
+    }
+
+    &[data-page="contact"] {
+      background: linear-gradient(#F2F6EF, 90%, transparent);
+    }
+  }
 }
 
 .header__link {
@@ -29,10 +65,34 @@
   padding-block: 1.6vh;
   margin-inline: 1.6vh;
 
-  >svg {
-    height: 100%;
+
+  @include media("<phone") {
+    height: 14rem;
+    width: fit-content;
+
+    padding-block: 2rem;
+    margin-inline: 2rem;
   }
 }
+
+.header__icon {
+  height: 100%;
+
+  &.--mobile {
+    display: none;
+  }
+
+
+  @include media("<phone") {
+    display: none;
+    width: 100%;
+
+    &.--mobile {
+      display: unset;
+    }
+  }
+}
+
 
 .header__menu-btn {
   @extend %button-text-30;
@@ -43,6 +103,11 @@
 
   pointer-events: all;
   text-transform: capitalize;
+
+  @include media("<phone") {
+    font-size: 0;
+    margin-block: 2.2rem;
+  }
 }
 
 .header__menu-btn__icon {
@@ -50,6 +115,11 @@
   height: 1.1rem;
   border-top: 1px solid var(--border-01-clr);
   border-bottom: 1px solid var(--border-01-clr);
+
+  @include media("<phone") {
+    width: 7rem;
+    height: 2.2rem;
+  }
 }
 
 .header__menu {

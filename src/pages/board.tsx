@@ -8,6 +8,11 @@ import Figure from 'components/Figure'
 import Section from 'components/Section'
 
 export default function Board({ content }) {
+  // useSmoothScroll({
+  //   selector: '.board',
+  //   disable: false,
+  // })
+
   useSmoothScroll({
     selector: '.board__content.--scrollable',
     disable: false,

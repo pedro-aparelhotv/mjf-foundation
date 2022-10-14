@@ -20,6 +20,10 @@
   letter-spacing: -0.01em;
   font-weight: 400;
   font-family: Helvetica;
+
+  @include media("<phone") {
+    font-size: 5rem;
+  }
 }
 
 %button-text-30 {

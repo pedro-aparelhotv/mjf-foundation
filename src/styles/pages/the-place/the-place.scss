@@ -6,9 +6,18 @@
   @extend %page__wrapper;
 
   padding-block: 2rem;
-  transform: translateX(-14rem);
+  transform: translateX(max(-14vh, -11rem));
 
   overflow: visible;
+
+  @include media("<phone") {
+    transform: unset;
+    padding-inline-start: 2rem;
+    padding-block: 16rem 2rem;
+
+    overflow: hidden;
+
+  }
 }
 
 .the-place-carousel {
@@ -42,6 +51,12 @@
     object-fit: cover;
     object-position: top;
   }
+
+  @include media("<phone") {
+    min-width: unset;
+    width: 89vw;
+    height: unset;
+  }
 }
 
 .the-place__swiper__slide__title,
@@ -51,6 +66,11 @@
 
   min-width: 58ch;
   margin-block-start: 2.2rem;
+
+  @include media("<phone") {
+    margin-inline-start: 2rem;
+
+  }
 }
 
 .the-place__swiper__slide__title {

@@ -3,6 +3,7 @@ import { useState } from 'react'
 import { IPrismicCTVisitorsLog } from 'types/PrismicCollectionTypes'
 import { IPrismicSTNavigation } from 'types/PrismisSingleType'
 
+import LogoMobileIcon from 'assets/logo-mobile.svg'
 import LogoIcon from 'assets/logo.svg'
 
 import Menu from './Menu'
@@ -29,13 +30,16 @@ const Header = ({ content }: IHeaderProps) => {
 
   const pageTitle = router.pathname.slice(1).split('-').join(' ')
 
+  const index = router.pathname.slice(1)
+
   const { visitorsLog, navigation } = content
 
   return (
     <header className="header">
-      <div className="header__wrapper">
+      <div className="header__wrapper" data-page={index}>
         <a className="header__link" onClick={handleOpenMenu}>
-          <LogoIcon />
+          <LogoIcon className="header__icon" />
+          <LogoMobileIcon className="header__icon --mobile" />
           <span className="sr-only">Maretta Jaukkuri Foundation</span>
         </a>
 

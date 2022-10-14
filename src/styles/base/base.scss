@@ -9,11 +9,17 @@ html {
 
   scroll-behavior: smooth;
 
-
   // Smooth scroll effect
   @extend %cover;
   position: fixed;
   overflow: hidden;
+
+
+  @include media("<phone") {
+    font-size: calc(100vw / 450 * 5);
+    position: relative;
+    overflow: visible;
+  }
 }
 
 body {

@@ -1,7 +1,7 @@
 import GSAP from 'gsap'
 import NormalizeWheel from 'normalize-wheel'
 import Prefix from 'prefix'
-import { useEffect, useRef } from 'react'
+import { useCallback, useEffect, useRef } from 'react'
 
 import { breakpoints } from 'utils/breakpoints'
 
@@ -26,12 +26,14 @@ const useSmoothScroll = ({
     const normalizedWheel = NormalizeWheel(event)
 
     scroll.current.target += normalizedWheel.pixelY
+
+    console.log(scroll.current.target)
   }
 
-  const onResize = () => {
+  const onResize = useCallback(() => {
     const element = document.querySelector(selector) as HTMLDivElement
     scroll.current.scrollLimit = element.clientHeight - innerHeight
-  }
+  }, [selector])
 
   const update = () => {
     scroll.current.target = GSAP.utils.clamp(
@@ -76,10 +78,13 @@ const useSmoothScroll = ({
     window.addEventListener('wheel', onWheel)
     window.addEventListener('resize', onResize)
 
-    update()
+    const animationId = requestAnimationFrame(update)
+
     return () => {
       window.removeEventListener('wheel', onWheel)
       window.removeEventListener('resize', onResize)
+
+      cancelAnimationFrame(animationId)
     }
   }, [selector, onResize])
 }

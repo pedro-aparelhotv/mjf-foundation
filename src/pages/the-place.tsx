@@ -38,11 +38,18 @@ export default function ThePlace({ content }) {
               {carousel?.items?.length > 0 && (
                 <Swiper
                   className="the-place__swiper"
-                  slidesPerView={1.51}
+                  breakpoints={{
+                    0: {
+                      slidesPerView: 1.075,
+                    },
+                    450: {
+                      slidesPerView: 1.51,
+                      centeredSlides: true,
+                      centerInsufficientSlides: true,
+                    },
+                  }}
                   navigation
                   grabCursor
-                  centerInsufficientSlides
-                  centeredSlides
                   autoplay
                   keyboard={{
                     enabled: true,

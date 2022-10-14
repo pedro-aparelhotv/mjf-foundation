@@ -40,6 +40,10 @@
     background-color: var(--surface-02-clr);
     filter: blur(12px);
   }
+
+  @include media("<phone") {
+    width: 100vw;
+  }
 }
 
 .article-modal__header {

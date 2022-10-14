@@ -41,6 +41,14 @@ const Article = ({ data, handleOpenArticle }: IArticleProps) => {
           Read More
         </button>
       </div>
+
+      <PrismicRichText
+        field={data.summary}
+        components={{
+          heading1: ({ children }) => <h1 aria-hidden="true">{children}</h1>,
+          paragraph: ({ children }) => <p aria-hidden="true">{children}</p>,
+        }}
+      />
     </article>
   )
 }

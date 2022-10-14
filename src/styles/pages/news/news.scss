@@ -5,9 +5,14 @@
 .news__wrapper {
   @extend %page__wrapper;
 
-  padding-inline-start: 11rem;
+  padding-inline-start: 11vh;
   padding-inline-end: 2.2rem;
   padding-block: 6.5rem;
+
+  @include media("<phone") {
+    padding-inline-start: 2rem;
+    padding-block: 16rem 12rem;
+  }
 }
 
 .news__list {
@@ -27,6 +32,12 @@
     height: 4rem;
     background-color: var(--border-01-clr);
     transform: translateX(-50%);
+  }
+
+  @include media("<phone") {
+    &::after {
+      content: unset;
+    }
   }
 }
 

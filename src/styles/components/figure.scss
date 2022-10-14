@@ -13,6 +13,10 @@
   min-width: 69rem;
   width: 69rem;
   min-height: 50.9rem;
+
+  @include media("<phone") {
+    width: calc(100vw - 4rem);
+  }
 }
 
 .figure__fig-caption {

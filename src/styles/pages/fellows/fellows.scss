@@ -5,7 +5,7 @@
 .fellows__wrapper {
   @extend %page__wrapper;
 
-  padding-inline-start: 11rem;
+  padding-inline-start: 11vh;
   padding-inline-end: 2rem;
   padding-block: 2rem;
 
@@ -21,6 +21,10 @@
     >em {
       font-style: italic;
     }
+  }
+
+  @include media("<phone") {
+    padding-inline-start: 2rem;
   }
 
 }

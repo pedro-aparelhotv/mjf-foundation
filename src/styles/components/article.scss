@@ -1,11 +1,53 @@
 .article {
+  position: relative;
   --gap: 0;
   @extend %flex;
+
+  h1 {
+    @extend %title-60;
+
+    em {
+      font-style: italic;
+    }
+  }
+
+  p {
+    @extend %title-45;
+    max-width: 32ch;
+
+    em {
+      font-style: italic;
+    }
+  }
+
+  *[aria-hidden="true"] {
+    display: none;
+  }
 
   &:hover {
     .article__btn {
       opacity: 1;
       visibility: visible;
+    }
+  }
+
+  @include media("<phone") {
+    --gap: 2.8rem;
+    align-items: center;
+    flex-direction: column;
+
+    padding-block: 2.8rem;
+
+    h1, p {
+      text-align: center;
+    }
+
+    p {
+      order: 2;
+    }
+
+    *[aria-hidden="true"] {
+      display: unset;
     }
   }
 }
@@ -25,6 +67,19 @@
     object-fit: cover;
 
   }
+
+  
+  @include media("<phone") {
+    @include ratio(193.5, 170);
+
+    min-width: 38.7rem;
+    min-height: 34rem;
+    height: 34rem;
+
+    border-right: unset;
+
+    order: 1;
+  }
 }
 
 .article__info {
@@ -32,26 +87,12 @@
   @extend %flex;
   flex-direction: column;
 
-  position: relative;
   flex: 1;
   padding-block: 2.9rem 3.2rem;
   padding-inline: 2.2rem;
 
-  h1 {
-    @extend %title-60;
-
-    em {
-      font-style: italic;
-    }
-  }
-
-  p {
-    @extend %title-45;
-    max-width: 32ch;
-
-    em {
-      font-style: italic;
-    }
+  @include media("<phone") {
+    display: none;
   }
 }
 
@@ -68,4 +109,8 @@
 
   opacity: 0;
   visibility: hidden;
+
+  @include media("<phone") {
+    display: none;
+  }
 }
