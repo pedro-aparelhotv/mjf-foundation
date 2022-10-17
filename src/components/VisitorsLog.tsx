@@ -39,6 +39,13 @@ const VisitorsLog = ({ content, isOpen, setIsOpen }: IVisitorsLogsProps) => {
       >
         <div className="visitors-log__header">
           <h1 className="visitors-log__title">Visitors Log</h1>
+          <button
+            className="visitors-log__btn"
+            type="button"
+            onClick={() => setIsOpen(false)}
+          >
+            <span>X</span>
+          </button>
         </div>
 
         <ul className="visitors-log__list">

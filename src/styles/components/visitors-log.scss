@@ -32,9 +32,15 @@
   &[data-active="true"] {
     transform: translateX(0%);
   }
+
+  @include media("<phone") {
+    width: 100vw;
+  }
 }
 
 .visitors-log__header {
+  --gap: 6rem;
+  @extend %space-between;
   position: absolute;
   top: 0;
   left: 0;
@@ -46,7 +52,26 @@
 
 .visitors-log__title {
   @extend %title-32;
-  text-align: right;
+  margin-left: auto;
+
+  @include media("<phone") {
+    margin-left: unset;
+  }
+}
+
+.visitors-log__btn {
+  @extend %center;
+  @extend %button-text-35;
+
+  transform: scaleX(1.4);
+  transform-origin: right;
+
+  display: none;
+
+  @include media("<phone") {
+    display: unset;
+
+  }
 }
 
 .visitors-log__list {
@@ -57,6 +82,11 @@
   &::-webkit-scrollbar {
     width: 0 !important;
     height: 0 !important;
+  }
+
+  @include media("<phone") {
+    padding-block: 10rem;
+
   }
 }
 

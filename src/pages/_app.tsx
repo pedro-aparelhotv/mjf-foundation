@@ -9,7 +9,6 @@ import BrushCanvas from 'components/BrushCanvas'
 import Header from 'components/Header'
 
 import 'styles/index.scss'
-
 function MyApp({ Component, pageProps }): ReactElement {
   const { navigation, visitorsLog } = pageProps
 

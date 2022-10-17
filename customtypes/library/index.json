@@ -20,6 +20,15 @@
           "label": "Link Text",
           "placeholder": ""
         }
+      },
+      "library_link": {
+        "type": "Link",
+        "config": {
+          "label": "Library Link",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "select": null
+        }
       }
     }
   }

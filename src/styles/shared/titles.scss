@@ -12,6 +12,10 @@
   line-height: 1.13;
   font-weight: 400;
   font-family: Helvetica;
+
+  @include media("<phone") {
+    font-size: 5.2rem;
+  }
 }
 
 %title-32 {
@@ -21,6 +25,11 @@
   font-weight: 400;
   font-family: "GT Alpina Trial";
   font-style: italic;
+
+  @include media("<phone") {
+    font-size: 5.2rem;
+
+  }
 }
 
 %title-35 {
@@ -29,6 +38,10 @@
   letter-spacing: -0.01em;
   font-weight: 400;
   font-family: Helvetica;
+
+  @include media("<phone") {
+    font-size: 3.5rem;
+  }
 }
 
 %title-45 {
@@ -36,6 +49,10 @@
   line-height: 0.95;
   font-weight: 400;
   font-family: Helvetica;
+
+  @include media("<phone") {
+    font-size: 4rem;
+  }
 }
 
 %title-48 {
@@ -51,6 +68,11 @@
   line-height: 0.98;
   font-weight: 400;
   font-family: Helvetica;
+
+  @include media("<phone") {
+    font-size: 5.4rem;
+
+  }
 }
 
 %title-70 {

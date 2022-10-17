@@ -25,8 +25,8 @@
 
   @include media("<phone") {
     padding-inline-start: 2rem;
+    padding-block: 16rem 2rem;
   }
-
 }
 
 
@@ -45,12 +45,33 @@
   --gap: 1.6rem;
   @extend %flex;
   flex-direction: column;
+
+  @include media("<phone") {
+    position: relative;
+  }
 }
 
-.fellows__table__options {}
+.fellows__table__options {
+
+  @include media("<phone") {
+    position: sticky;
+    bottom: 0;
+    left: 0;
+    margin-inline-start: -2.2rem;
+    margin-block-end: -2.2rem;
+    width: 100vw;
+    z-index: 2;
+    order: 2;
+  }
+}
 
 .fellows__table__options__list {
   @extend %space-between;
+
+  @include media("<phone") {
+    padding: 6.4rem 2.2rem 4.2rem;
+    background: linear-gradient(to top, white, 80%, transparent);
+  }
 }
 
 .fellows__table__options__item {}
@@ -73,6 +94,10 @@
 
 .fellows__table__content {
   border-top: 0.2rem solid var(--border-01-clr);
+
+  @include media("<phone") {
+    min-height: 60vh;
+  }
 }
 
 .fellows__table__years-list {
@@ -84,6 +109,11 @@
 
 .fellows__table__years-item {
   flex-basis: 31.85%;
+
+  @include media("<phone") {
+    flex-basis: 48.2%;
+
+  }
 }
 
 .fellows__table__years-btn {
@@ -93,7 +123,7 @@
   width: 100%;
   padding-block: 1.4rem;
 
-  border: 0.2rem solid var(--border-01-clr);
+  border: 0.05rem solid var(--border-01-clr);
   border-radius: 0.4rem;
 }
 
@@ -104,7 +134,17 @@
 .fellows__article {
   @extend %space-between;
   padding-block: 3.6rem;
-  border-bottom: 0.2rem solid var(--border-01-clr);
+  border-bottom: 0.05rem solid var(--border-01-clr);
+  border-top: 0.05rem solid var(--border-01-clr);
+
+  &[data-disabled="false"] {
+    cursor: pointer;
+    transition: 0.3s ease;
+
+    &:hover {
+      filter: blur(0.75px);
+    }
+  }
 }
 
 .fellows__article__title {

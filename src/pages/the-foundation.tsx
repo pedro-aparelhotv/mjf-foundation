@@ -1,4 +1,5 @@
 import { GetStaticProps } from 'next'
+import Head from 'next/head'
 
 import { useSmoothScroll } from 'hooks/useSmoothScroll'
 
@@ -18,39 +19,44 @@ export default function TheFoundation({ content }) {
   }
 
   return (
-    <main className="the-foundation">
-      <div className="the-foundation__wrapper">
-        <div className="the-foundation__content --scrollable">
-          {content.data?.slices?.map(
-            slice =>
-              isSliceSectionVariantDefault(slice) && (
-                <Section
-                  key={slice.id}
-                  data={{
-                    title: slice.primary.title,
-                    paragraph: slice.primary.text,
-                  }}
-                />
-              ),
-          )}
-        </div>
+    <>
+      <Head>
+        <title>News | Maretta Jaukkuri Foundation</title>
+      </Head>
+      <main className="the-foundation">
+        <div className="the-foundation__wrapper">
+          <div className="the-foundation__content --scrollable">
+            {content.data?.slices?.map(
+              slice =>
+                isSliceSectionVariantDefault(slice) && (
+                  <Section
+                    key={slice.id}
+                    data={{
+                      title: slice.primary.title,
+                      paragraph: slice.primary.text,
+                    }}
+                  />
+                ),
+            )}
+          </div>
 
-        <div className="the-foundation__content">
-          {content.data?.image && (
-            <Figure
-              data={{
-                url: content.data.image.url,
-                caption: content.data.image.alt,
-              }}
-            />
-          )}
+          <div className="the-foundation__content">
+            {content.data?.image && (
+              <Figure
+                data={{
+                  url: content.data.image.url,
+                  caption: content.data.image.alt,
+                }}
+              />
+            )}
+          </div>
         </div>
-      </div>
-    </main>
+      </main>
+    </>
   )
 }
 
-export const getStaticProps: GetStaticProps = async ctx => {
+export const getStaticProps: GetStaticProps = async () => {
   const defaults = await getDefaults()
   const data = await prismicApi.getSingle('the_foundation')
 

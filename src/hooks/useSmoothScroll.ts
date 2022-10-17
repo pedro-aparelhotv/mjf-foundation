@@ -26,8 +26,6 @@ const useSmoothScroll = ({
     const normalizedWheel = NormalizeWheel(event)
 
     scroll.current.target += normalizedWheel.pixelY
-
-    console.log(scroll.current.target)
   }
 
   const onResize = useCallback(() => {

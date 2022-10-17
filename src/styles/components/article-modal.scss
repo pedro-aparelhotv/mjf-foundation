@@ -69,6 +69,13 @@
     background-color: var(--surface-02-clr);
     filter: blur(12px);
   }
+
+  @include media("<phone") {
+    &::before {
+      height: 18rem;
+      transform: translateY(-30%);
+    }
+  }
 }
 
 .article-modal__close-btn {

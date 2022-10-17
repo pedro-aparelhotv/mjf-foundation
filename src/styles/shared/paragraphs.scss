@@ -3,6 +3,12 @@
   line-height: 1.16;
   font-weight: 400;
   font-family: Helvetica;
+
+
+  @include media("<phone") {
+    font-size: 2.8rem;
+
+  }
 }
 
 %paragraph-24 {
@@ -10,6 +16,10 @@
   line-height: 1.16;
   font-weight: 400;
   font-family: Helvetica;
+
+  @include media("<phone") {
+    font-size: 4.2rem;
+  }
 }
 
 %paragraph-31 {
@@ -17,6 +27,11 @@
   line-height: 1.16;
   font-weight: 400;
   font-family: Helvetica;
+
+  @include media("<phone") {
+    font-size: 5.2rem;
+
+  }
 }
 
 %paragraph-40 {
@@ -25,6 +40,11 @@
   letter-spacing: -0.01em;
   font-weight: 400;
   font-family: Helvetica;
+
+  @include media("<phone") {
+    font-size: 5.2rem;
+
+  }
 }
 
 %paragraph-48 {

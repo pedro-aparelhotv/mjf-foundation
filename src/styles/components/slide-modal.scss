@@ -75,6 +75,11 @@
   img {
     object-fit: cover;
   }
+
+  @include media("<phone") {
+    min-width: unset;
+    width: calc(100vw - 4rem);
+  }
 }
 
 
@@ -95,6 +100,25 @@
 
   &:disabled {
     filter: blur(4px);
+  }
+
+  @include media("<phone") {
+    z-index: 9999;
+    top: 80%;
+
+    &::before {
+      content: '';
+      position: absolute;
+      z-index: -1;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(var(--surface-02-clr) 50%, transparent);
+      filter: blur(8px);
+
+    }
   }
 }
 

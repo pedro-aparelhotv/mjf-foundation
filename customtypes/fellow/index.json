@@ -5,6 +5,14 @@
   "status": true,
   "json": {
     "Main": {
+      "profile_image": {
+        "type": "Image",
+        "config": {
+          "label": "Profile Image",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
       "name": {
         "type": "Text",
         "config": {

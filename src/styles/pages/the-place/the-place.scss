@@ -13,16 +13,22 @@
   @include media("<phone") {
     transform: unset;
     padding-inline-start: 2rem;
-    padding-block: 16rem 2rem;
+    padding-block: 16rem 4rem;
 
     overflow: hidden;
-
   }
 }
 
 .the-place-carousel {
   &+& {
     margin-block-start: 12.4rem;
+  }
+
+  @include media("<phone") {
+
+    &+& {
+      margin-block-start: 16.4rem;
+    }
   }
 }
 
@@ -69,6 +75,10 @@
 
   @include media("<phone") {
     margin-inline-start: 2rem;
+    margin-block-start: 6.2rem;
+
+    min-width: unset;
+    max-width: 28ch;
 
   }
 }

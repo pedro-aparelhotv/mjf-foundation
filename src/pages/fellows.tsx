@@ -2,18 +2,23 @@
 import { PrismicRichText } from '@prismicio/react'
 import { format } from 'date-fns'
 import { GetStaticProps } from 'next'
+import Head from 'next/head'
 import { useState } from 'react'
 
 import { useSmoothScroll } from 'hooks/useSmoothScroll'
 
 import prismicApi, { getDefaults } from 'services/prismic'
 
-export default function Fellows({ content, fellows }) {
+import ArticleModal from 'components/ArticleModal'
+
+export default function Fellows({ content, fellows, availableYears }) {
   useSmoothScroll({
     selector: '.fellows',
     disable: false,
   })
 
+  const [isOpen, setIsOpen] = useState(false)
+  const [articleOpened, setArticleOpened] = useState(null)
   const [isSelectingYear, setIsSelectingYear] = useState(false)
   const [selectedYear, setSelectedYear] = useState<number>(null)
 
@@ -31,109 +36,114 @@ export default function Fellows({ content, fellows }) {
     setIsSelectingYear(false)
   }
 
+  const handleClickOnFellow = fellow => {
+    setArticleOpened(fellow)
+    setIsOpen(true)
+  }
+
+  const filteredFellows = selectedYear
+    ? fellows.filter(fellow => fellow.duration.match(selectedYear))
+    : fellows
+
   return (
-    <main className="fellows">
-      <div className="fellows__wrapper">
-        {content.data?.title && <PrismicRichText field={content.data.title} />}
+    <>
+      <Head>
+        <title>Fellows | Maretta Jaukkuri Foundation</title>
+      </Head>
 
-        <section className="fellows__table">
-          <header className="fellows__table__options">
-            <ul className="fellows__table__options__list">
-              <li className="fellows__table__options__item">
-                <button
-                  className="fellows__table__options__btn"
-                  type="button"
-                  onClick={handleClickOnSelectAYear}
-                  data-active={isSelectingYear}
-                >
-                  {isSelectingYear
-                    ? content.data.year_view_active_button_text
-                    : content.data.year_view_button_text}
-                </button>
-              </li>
-              <li className="fellows__table__options__item">
-                <button
-                  className="fellows__table__options__btn"
-                  type="button"
-                  onClick={handleClickOnSeeAll}
-                  data-active={!isSelectingYear}
-                >
-                  {!isSelectingYear
-                    ? content.data.list_view_active_button_text
-                    : content.data.list_view_button_text}
-                </button>
-              </li>
-            </ul>
-          </header>
+      <main className="fellows">
+        <div className="fellows__wrapper">
+          {content.data?.title && (
+            <PrismicRichText field={content.data.title} />
+          )}
 
-          <div className="fellows__table__content">
-            {isSelectingYear ? (
-              <ul className="fellows__table__years-list">
-                <li className="fellows__table__years-item">
+          <section className="fellows__table">
+            <header className="fellows__table__options">
+              <ul className="fellows__table__options__list">
+                <li className="fellows__table__options__item">
                   <button
-                    className="fellows__table__years-btn"
+                    className="fellows__table__options__btn"
                     type="button"
-                    onClick={() => handleClickOnYear(2021)}
+                    onClick={handleClickOnSelectAYear}
+                    data-active={isSelectingYear}
                   >
-                    2021
+                    {isSelectingYear
+                      ? content.data.year_view_active_button_text
+                      : content.data.year_view_button_text}
                   </button>
                 </li>
-                <li className="fellows__table__years-item">
+                <li className="fellows__table__options__item">
                   <button
-                    className="fellows__table__years-btn"
+                    className="fellows__table__options__btn"
                     type="button"
-                    onClick={() => handleClickOnYear(2020)}
+                    onClick={handleClickOnSeeAll}
+                    data-active={!isSelectingYear}
                   >
-                    2020
-                  </button>
-                </li>
-                <li className="fellows__table__years-item">
-                  <button
-                    className="fellows__table__years-btn"
-                    type="button"
-                    onClick={() => handleClickOnYear(2019)}
-                  >
-                    2019
-                  </button>
-                </li>
-                <li className="fellows__table__years-item">
-                  <button
-                    className="fellows__table__years-btn"
-                    type="button"
-                    onClick={() => handleClickOnYear(2018)}
-                  >
-                    2018
+                    {!isSelectingYear
+                      ? content.data.list_view_active_button_text
+                      : content.data.list_view_button_text}
                   </button>
                 </li>
               </ul>
-            ) : (
-              <ul className="fellows__table__list">
-                {fellows.map(fellow => (
-                  <li key={fellow.id} className="fellows__table__item">
-                    <article className="fellows__article">
-                      <h2 className="fellows__article__title">
-                        {fellow.data.name}, {fellow.data.country}
-                      </h2>
+            </header>
 
-                      <span className="fellows__article__len-of-stay">
-                        {fellow.duration}
-                      </span>
-                    </article>
-                  </li>
-                ))}
-              </ul>
-            )}
-          </div>
-        </section>
-      </div>
-    </main>
+            <div className="fellows__table__content">
+              {isSelectingYear ? (
+                <ul className="fellows__table__years-list">
+                  {availableYears?.map(year => (
+                    <li key={year} className="fellows__table__years-item">
+                      <button
+                        className="fellows__table__years-btn"
+                        type="button"
+                        onClick={() => handleClickOnYear(year)}
+                      >
+                        {year}
+                      </button>
+                    </li>
+                  ))}
+                </ul>
+              ) : (
+                <ul className="fellows__table__list">
+                  {filteredFellows.map(fellow => (
+                    <li key={fellow.id} className="fellows__table__item">
+                      <article
+                        className="fellows__article"
+                        onClick={() => handleClickOnFellow(fellow)}
+                        data-disabled={fellow.data.content.length === 0}
+                      >
+                        <h2 className="fellows__article__title">
+                          {fellow.data.name}
+                          {fellow.data.country && `, ${fellow.data.country}`}
+                        </h2>
+
+                        <span className="fellows__article__len-of-stay">
+                          {fellow.duration}
+                        </span>
+                      </article>
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </div>
+          </section>
+        </div>
+      </main>
+
+      <ArticleModal
+        setIsOpen={setIsOpen}
+        isOpen={isOpen}
+        content={articleOpened}
+      />
+    </>
   )
 }
 
-export const getStaticProps: GetStaticProps = async ctx => {
+export const getStaticProps: GetStaticProps = async () => {
   const defaults = await getDefaults()
   const data = await prismicApi.getSingle('fellows')
   let fellows = await prismicApi.getAllByType('fellow')
+
+  const options = new Set()
 
   fellows = fellows.map(fellow => {
     const startMonth = format(new Date(fellow.data.start_date), 'MMM')
@@ -142,14 +152,22 @@ export const getStaticProps: GetStaticProps = async ctx => {
     const endMonth = format(new Date(fellow.data.start_date), 'MMM')
     const endYear = format(new Date(fellow.data.start_date), 'y')
 
+    options.add(startYear)
+    options.add(endYear)
+
     const duration =
       Number(endYear) > Number(startYear)
-        ? `${startMonth} ${startYear} — ${endMonth} ${endYear}`
-        : `${startMonth} — ${endMonth} ${endYear}`
+        ? `${startMonth} ${startYear}-${endMonth} ${endYear}`
+        : `${startMonth}-${endMonth} ${endYear}`
     return { ...fellow, duration }
   })
 
   return {
-    props: { defaults, content: data, fellows },
+    props: {
+      defaults,
+      content: data,
+      fellows,
+      availableYears: Array.from(options),
+    },
   }
 }

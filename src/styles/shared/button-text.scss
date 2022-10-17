@@ -4,6 +4,11 @@
   letter-spacing: -0.01em;
   font-weight: 400;
   font-family: Helvetica;
+
+  @include media("<phone") {
+    font-size: 3.4rem;
+
+  }
 }
 
 %button-text-20 {
@@ -41,6 +46,10 @@
   letter-spacing: -0.01em;
   font-weight: 400;
   font-family: Helvetica;
+
+  @include media("<phone") {
+    font-size: 4.4rem;
+  }
 }
 
 %button-text-52 {

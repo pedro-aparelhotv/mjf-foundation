@@ -2,6 +2,7 @@ import 'swiper/css'
 import 'swiper/css/navigation'
 
 import { GetStaticProps } from 'next'
+import Head from 'next/head'
 import Image from 'next/image'
 import { useState } from 'react'
 import { Keyboard, Navigation, Autoplay } from 'swiper'
@@ -31,6 +32,9 @@ export default function ThePlace({ content }) {
 
   return (
     <>
+      <Head>
+        <title>The Place | Maretta Jaukkuri Foundation</title>
+      </Head>
       <main className="the-place">
         <div className="the-place__wrapper">
           {content?.data?.slices.map(carousel => (
@@ -98,7 +102,7 @@ export default function ThePlace({ content }) {
   )
 }
 
-export const getStaticProps: GetStaticProps = async ctx => {
+export const getStaticProps: GetStaticProps = async () => {
   const defaults = await getDefaults()
   const data = await prismicApi.getSingle('the_place')
 

@@ -21,9 +21,15 @@
 
   padding-block: 2rem;
   border: 1px solid var(--border-01-clr);
+
+  @include media("<phone") {
+    margin-block-start: 2.4rem;
+    padding-block: 4rem;
+
+  }
 }
 
 .section__paragraph {
   @extend %paragraph-31;
-  white-space: pre-line;
+  white-space: pre-wrap;
 }

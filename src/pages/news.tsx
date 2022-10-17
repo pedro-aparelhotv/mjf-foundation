@@ -1,4 +1,5 @@
 import { GetStaticProps } from 'next'
+import Head from 'next/head'
 import { useState } from 'react'
 
 import { useSmoothScroll } from 'hooks/useSmoothScroll'
@@ -26,6 +27,9 @@ export default function News({ content }) {
 
   return (
     <>
+      <Head>
+        <title>News | Maretta Jaukkuri Foundation</title>
+      </Head>
       <main className="news">
         <div className="news__wrapper">
           <ul className="news__list">
@@ -52,7 +56,7 @@ export default function News({ content }) {
   )
 }
 
-export const getStaticProps: GetStaticProps = async ctx => {
+export const getStaticProps: GetStaticProps = async () => {
   const defaults = await getDefaults()
   const data = await prismicApi.getAllByType('news')
 

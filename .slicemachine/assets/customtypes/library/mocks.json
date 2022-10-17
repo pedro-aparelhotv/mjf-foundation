@@ -14,10 +14,14 @@
     "summary": [
       {
         "type": "heading1",
-        "text": "Spell",
+        "text": "Generally",
         "spans": []
       }
     ],
-    "link_text": "exercise"
+    "link_text": "task",
+    "library_link": {
+      "link_type": "Web",
+      "url": "https://slicemachine.dev"
+    }
   }
 }

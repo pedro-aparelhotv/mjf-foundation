@@ -1,5 +1,6 @@
 import { PrismicRichText } from '@prismicio/react'
 import { GetStaticProps } from 'next'
+import Head from 'next/head'
 
 import { useSmoothScroll } from 'hooks/useSmoothScroll'
 
@@ -12,15 +13,20 @@ export default function Contact({ content }) {
   })
 
   return (
-    <main className="contact">
-      <div className="contact__wrapper">
-        <PrismicRichText field={content.data.content} />
-      </div>
-    </main>
+    <>
+      <Head>
+        <title>Contact | Maretta Jaukkuri Foundation</title>
+      </Head>
+      <main className="contact">
+        <div className="contact__wrapper">
+          <PrismicRichText field={content.data.content} />
+        </div>
+      </main>
+    </>
   )
 }
 
-export const getStaticProps: GetStaticProps = async ctx => {
+export const getStaticProps: GetStaticProps = async () => {
   const defaults = await getDefaults()
   const data = await prismicApi.getSingle('contact_page')
 
