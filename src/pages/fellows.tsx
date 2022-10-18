@@ -170,6 +170,6 @@ export const getStaticProps: GetStaticProps = async () => {
       fellows,
       availableYears: Array.from(options),
     },
-    revalidate: 60,
+    revalidate: 10,
   }
 }
