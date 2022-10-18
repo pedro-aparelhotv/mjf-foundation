@@ -1,10 +1,14 @@
 import React, { useMemo } from 'react'
+import { IPrismicCTFellow } from 'types/PrismicCollectionTypes'
 
 interface ISectionProps {
   data: {
     title: string
     paragraph?: string
-    fellows?: any
+    fellows?: Array<{
+      fellows: IPrismicCTFellow
+    }>
+    setFellowSelected?: (fellow: IPrismicCTFellow) => void
   }
 }
 
@@ -14,7 +18,6 @@ const Section = ({ data }: ISectionProps) => {
 
     return data.fellows.map(({ fellows }) => ({
       ...fellows,
-      name: fellows.slug.split('-').join(' '),
     }))
   }, [data])
 
@@ -29,7 +32,12 @@ const Section = ({ data }: ISectionProps) => {
         <ul>
           {fellows.map(fellow => (
             <li key={fellow.id}>
-              <button>{fellow.name}</button>
+              <button
+                type="button"
+                onClick={() => data.setFellowSelected(fellow)}
+              >
+                {fellow.data.name}
+              </button>
             </li>
           ))}
         </ul>

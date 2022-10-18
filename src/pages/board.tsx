@@ -1,18 +1,30 @@
 import { GetStaticProps } from 'next'
 import Head from 'next/head'
+import { useState } from 'react'
+import { IPrismicCTFellow } from 'types/PrismicCollectionTypes'
 
 import { useSmoothScroll } from 'hooks/useSmoothScroll'
 
 import prismicApi, { getDefaults } from 'services/prismic'
 
+import ArticleModal from 'components/ArticleModal'
 import Figure from 'components/Figure'
 import Section from 'components/Section'
 
 export default function Board({ content }) {
+  const [isOpen, setIsOpen] = useState(false)
+
   useSmoothScroll({
     selector: '.board__content.--scrollable',
-    disable: false,
+    disable: isOpen,
   })
+
+  const [fellowSelected, setFellowSelected] = useState(null)
+
+  const handleClickOnFellow = (fellow: IPrismicCTFellow) => {
+    setFellowSelected(fellow)
+    setIsOpen(true)
+  }
 
   return (
     <>
@@ -31,7 +43,8 @@ export default function Board({ content }) {
                     data={{
                       title: slice.primary.title,
                       paragraph: slice.primary.text,
-                      // fellows: slice.items,
+                      fellows: slice.items,
+                      setFellowSelected: handleClickOnFellow,
                     }}
                   />
                 ),
@@ -50,15 +63,24 @@ export default function Board({ content }) {
           </div>
         </div>
       </main>
+
+      <ArticleModal
+        isOpen={isOpen}
+        setIsOpen={setIsOpen}
+        content={fellowSelected}
+      />
     </>
   )
 }
 
 export const getStaticProps: GetStaticProps = async () => {
   const defaults = await getDefaults()
-  const data = await prismicApi.getSingle('board_page')
+  const data = await prismicApi.getSingle('board_page', {
+    fetchLinks: ['fellow.name', 'fellow.content', 'fellow.profile_image'],
+  })
 
   return {
     props: { defaults, content: data },
+    revalidate: 10,
   }
 }

@@ -3,8 +3,10 @@
 import { RTNode } from '@prismicio/types'
 
 export interface IPrismicCTFellow {
+  id: string
   data: {
     name: string
+    content: [] | [RTNode, ...RTNode[]]
   }
 }
 

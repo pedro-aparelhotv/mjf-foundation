@@ -18,37 +18,37 @@
 
   @include media("<phone") {
     padding-block-end: 3.6rem;
-  
+
     &[data-page="the-foundation"] {
-      background: linear-gradient(#F2F2EC, 90%, transparent);
+      background: linear-gradient(#F2F2EC, 90%, #F2F2EC00);
     }
 
     &[data-page="the-place"] {
-      background: linear-gradient(#E7E7E7, 90%, transparent);
+      background: linear-gradient(#E7E7E7, 90%, #E7E7E700);
     }
 
     &[data-page="news"] {
-      background: linear-gradient(#E8EADF, 90%, transparent);
+      background: linear-gradient(#E8EADF, 90%, #E8EADF00);
     }
 
     &[data-page="fellows"] {
-      background: linear-gradient(#F9F1E1, 90%, transparent);
+      background: linear-gradient(#F9F1E1, 90%, #F9F1E100);
     }
 
     &[data-page="events"] {
-      background: linear-gradient(#F3E9E9, 90%, transparent);
+      background: linear-gradient(#F3E9E9, 90%, #F3E9E900);
     }
 
     &[data-page="board"] {
-      background: linear-gradient(#EFF4F4, 90%, transparent);
+      background: linear-gradient(#EFF4F4, 90%, #EFF4F400);
     }
 
     &[data-page="library"] {
-      background: linear-gradient(#E8E3BE, 90%, transparent);
+      background: linear-gradient(#E8E3BE, 90%, #E8E3BE00);
     }
 
     &[data-page="contact"] {
-      background: linear-gradient(#F2F6EF, 90%, transparent);
+      background: linear-gradient(#F2F6EF, 90%, #F2F6EF00);
     }
   }
 }
@@ -68,7 +68,7 @@
 
   @include media("<phone") {
     height: 14rem;
-    width: fit-content;
+    width: 48rem;
 
     padding-block: 2rem;
     margin-inline: 2rem;

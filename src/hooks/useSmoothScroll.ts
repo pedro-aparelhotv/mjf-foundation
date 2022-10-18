@@ -22,18 +22,21 @@ const useSmoothScroll = ({
     scrollLimit: 0,
   })
 
-  const onWheel = event => {
-    const normalizedWheel = NormalizeWheel(event)
+  const onWheel = useCallback(
+    event => {
+      const normalizedWheel = NormalizeWheel(event)
 
-    scroll.current.target += normalizedWheel.pixelY
-  }
+      scroll.current.target += disable ? 0 : normalizedWheel.pixelY
+    },
+    [disable],
+  )
 
   const onResize = useCallback(() => {
     const element = document.querySelector(selector) as HTMLDivElement
     scroll.current.scrollLimit = element.clientHeight - innerHeight
   }, [selector])
 
-  const update = () => {
+  const update = useCallback(() => {
     scroll.current.target = GSAP.utils.clamp(
       0,
       scroll.current.scrollLimit,
@@ -55,7 +58,7 @@ const useSmoothScroll = ({
 
       if (!scrollingElement) return
 
-      if (innerWidth >= breakpoints.phone && !disable) {
+      if (innerWidth >= breakpoints.phone) {
         scrollingElement.style[
           transformPrefix
         ] = `translateY(-${scroll.current.y}px)`
@@ -65,7 +68,7 @@ const useSmoothScroll = ({
     }
 
     requestAnimationFrame(update)
-  }
+  }, [selector])
 
   useEffect(() => {
     if (!selector) return
@@ -84,7 +87,7 @@ const useSmoothScroll = ({
 
       cancelAnimationFrame(animationId)
     }
-  }, [selector, onResize])
+  }, [selector, onResize, onWheel, update])
 }
 
 export { useSmoothScroll }

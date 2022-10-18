@@ -12,12 +12,13 @@ import prismicApi, { getDefaults } from 'services/prismic'
 import ArticleModal from 'components/ArticleModal'
 
 export default function Fellows({ content, fellows, availableYears }) {
+  const [isOpen, setIsOpen] = useState(false)
+
   useSmoothScroll({
     selector: '.fellows',
-    disable: false,
+    disable: isOpen,
   })
 
-  const [isOpen, setIsOpen] = useState(false)
   const [articleOpened, setArticleOpened] = useState(null)
   const [isSelectingYear, setIsSelectingYear] = useState(false)
   const [selectedYear, setSelectedYear] = useState<number>(null)
@@ -169,5 +170,6 @@ export const getStaticProps: GetStaticProps = async () => {
       fellows,
       availableYears: Array.from(options),
     },
+    revalidate: 60,
   }
 }
