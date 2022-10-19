@@ -7,16 +7,22 @@ import Image from 'next/image'
 import { useState } from 'react'
 import { Keyboard, Navigation, Autoplay } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/react'
+import { IPrismicSTThePlacePage } from 'types/PrismisSingleType'
 
 import { useSmoothScroll } from 'hooks/useSmoothScroll'
 
 import prismicApi, { getDefaults } from 'services/prismic'
 
+// import EmblaCarousel from 'components/EmblaCarousel'
 import SlideModal from 'components/SlideModal'
 
 import { rgbDataURL } from 'utils/color'
 
-export default function ThePlace({ content }) {
+interface IThePlace {
+  content: IPrismicSTThePlacePage
+}
+
+export default function ThePlace({ content }: IThePlace) {
   const [isOpenSlideFullscreen, setIsOpenSlideFullscreen] = useState(false)
   const [selectedCarousel, setSelectedCarousel] = useState(null)
 
@@ -69,9 +75,9 @@ export default function ThePlace({ content }) {
                       <div className="the-place__swiper__slide__img">
                         <Image
                           layout="fill"
+                          objectFit="contain"
                           src={gallery.url}
                           alt={gallery.alt}
-                          priority
                           quality={100}
                           placeholder="blur"
                           blurDataURL={rgbDataURL(238, 210, 182)}
@@ -81,6 +87,29 @@ export default function ThePlace({ content }) {
                   ))}
                 </Swiper>
               )}
+
+              {/* {carousel?.items?.length > 0 && (
+                <EmblaCarousel>
+                  {carousel.items.map(({ gallery }) => (
+                    <div
+                      key={gallery.url}
+                      className="the-place__swiper__slide__img"
+                    >
+                      <Image
+                        layout="responsive"
+                        objectFit="contain"
+                        src={gallery.url}
+                        alt={gallery.alt}
+                        width={gallery.dimensions.width}
+                        height={gallery.dimensions.height}
+                        quality={100}
+                        placeholder="blur"
+                        blurDataURL={rgbDataURL(238, 210, 182)}
+                      />
+                    </div>
+                  ))}
+                </EmblaCarousel>
+              )} */}
 
               <h1 className="the-place__swiper__slide__title">
                 {carousel.primary.title ?? ''}

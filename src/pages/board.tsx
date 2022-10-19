@@ -43,8 +43,8 @@ export default function Board({ content }) {
                     data={{
                       title: slice.primary.title,
                       paragraph: slice.primary.text,
-                      fellows: slice.items,
-                      setFellowSelected: handleClickOnFellow,
+                      boardMembers: slice.items,
+                      setBoardSelected: handleClickOnFellow,
                     }}
                   />
                 ),
@@ -76,7 +76,7 @@ export default function Board({ content }) {
 export const getStaticProps: GetStaticProps = async () => {
   const defaults = await getDefaults()
   const data = await prismicApi.getSingle('board_page', {
-    fetchLinks: ['fellow.name', 'fellow.content', 'fellow.profile_image'],
+    fetchLinks: ['board.name', 'board.content', 'board.profile_image'],
   })
 
   return {

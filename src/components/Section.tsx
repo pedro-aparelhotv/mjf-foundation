@@ -5,19 +5,19 @@ interface ISectionProps {
   data: {
     title: string
     paragraph?: string
-    fellows?: Array<{
-      fellows: IPrismicCTFellow
+    boardMembers?: Array<{
+      board: IPrismicCTFellow
     }>
-    setFellowSelected?: (fellow: IPrismicCTFellow) => void
+    setBoardSelected?: (fellow: IPrismicCTFellow) => void
   }
 }
 
 const Section = ({ data }: ISectionProps) => {
-  const fellows = useMemo(() => {
-    if (!data.fellows || data?.fellows?.length === 0) return null
+  const boardMembers = useMemo(() => {
+    if (!data.boardMembers || data?.boardMembers?.length === 0) return null
 
-    return data.fellows.map(({ fellows }) => ({
-      ...fellows,
+    return data.boardMembers.map(({ board }) => ({
+      ...board,
     }))
   }, [data])
 
@@ -28,18 +28,21 @@ const Section = ({ data }: ISectionProps) => {
         <p className="section__paragraph">{data?.paragraph ?? ''}</p>
       )}
 
-      {fellows?.length > 0 && (
+      {boardMembers?.length > 0 && (
         <ul>
-          {fellows.map(fellow => (
-            <li key={fellow.id}>
-              <button
-                type="button"
-                onClick={() => data.setFellowSelected(fellow)}
-              >
-                {fellow.data.name}
-              </button>
-            </li>
-          ))}
+          {boardMembers.map(
+            board =>
+              Object.keys(board).length > 0 && (
+                <li key={board.id}>
+                  <button
+                    type="button"
+                    onClick={() => data.setBoardSelected(board)}
+                  >
+                    {board.data.name}
+                  </button>
+                </li>
+              ),
+          )}
         </ul>
       )}
     </section>
