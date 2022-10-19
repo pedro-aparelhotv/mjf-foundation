@@ -1,20 +1,15 @@
 import { PrismicRichText } from '@prismicio/react'
 import Image from 'next/image'
+import { IPrismicCTNews } from 'types/PrismicCollectionTypes'
 
 import { rgbDataURL } from 'utils/color'
 
 interface IArticleProps {
-  data: {
-    thumbnail: {
-      url: string
-      alt: string
-    }
-    summary: any
-  }
+  data: IPrismicCTNews
   handleOpenArticle: () => void
 }
 
-const Article = ({ data, handleOpenArticle }: IArticleProps) => {
+const Article = ({ data: { data }, handleOpenArticle }: IArticleProps) => {
   return (
     <article className="article" onClick={handleOpenArticle}>
       <div className="article__img">

@@ -197,13 +197,13 @@
                 }
               },
               "items": {
-                "fellows": {
+                "board": {
                   "type": "Link",
                   "config": {
-                    "label": "Fellows",
+                    "label": "Board",
                     "select": "document",
                     "customtypes": [
-                      "fellow"
+                      "board_member"
                     ]
                   }
                 }
@@ -220,8 +220,8 @@
               {}
             ],
             "primary": {
-              "title": "storm",
-              "text": "package"
+              "title": "chance",
+              "text": "reader"
             },
             "slice_type": "section"
           },
@@ -230,10 +230,10 @@
             "version": "sktwi1xtmkfgx8626",
             "items": [
               {
-                "fellows": {
+                "board": {
                   "id": "mock_document_id",
                   "link_type": "Document",
-                  "type": "fellow",
+                  "type": "board_member",
                   "tags": [],
                   "lang": "en-us",
                   "slug": null,
@@ -243,7 +243,7 @@
               }
             ],
             "primary": {
-              "title": "gently"
+              "title": "kitchen"
             },
             "slice_type": "section"
           }

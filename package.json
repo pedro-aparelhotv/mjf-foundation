@@ -24,6 +24,7 @@
     "@prismicio/slice-simulator-react": "^0.2.2",
     "@react-three/drei": "^9.25.2",
     "date-fns": "^2.29.3",
+    "embla-carousel-react": "^7.0.3",
     "glslify-loader": "^2.0.0",
     "gsap": "^3.10.4",
     "next": "^12.2.4",

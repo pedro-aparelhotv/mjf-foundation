@@ -12,7 +12,7 @@ const Log = ({ content }: ILogProps) => (
     </div>
 
     <footer className="log__info">
-      <p className="log__paragraph">{content.data.fellow.data.name}</p>
+      <p className="log__paragraph">{content.data.author.data.name}</p>
       <p className="log__paragraph">Entry n. {content.uid}</p>
       <p className="log__paragraph">{content.data.created_at}</p>
     </footer>

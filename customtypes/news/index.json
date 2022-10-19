@@ -5,6 +5,13 @@
   "status": true,
   "json": {
     "Main": {
+      "created_at": {
+        "type": "Date",
+        "config": {
+          "label": "Created At",
+          "placeholder": ""
+        }
+      },
       "thumbnail": {
         "type": "Image",
         "config": {

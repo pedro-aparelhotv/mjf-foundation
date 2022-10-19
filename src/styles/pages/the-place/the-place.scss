@@ -44,18 +44,27 @@
 }
 
 .the-place__swiper__slide__img {
-  @include ratio(984, 655);
+  // @include ratio(984, 655);
   position: relative;
 
-  min-width: 98.4rem;
+  min-width: 55.4rem;
+  max-width: 98.4rem;
+  width: 100%;
   width: 98.4rem;
-  height: 65.5rem;
+
+  min-height: 65.5rem;
+  max-height: 65.5rem;
 
   cursor: url('/images/cursor-open-img.png'), auto;
 
+  * {
+    object-fit: contain;
+    object-position: center;
+  }
+
   img {
-    object-fit: cover;
-    object-position: top;
+    max-width: 100%;
+    max-height: 100%;
   }
 
   @include media("<phone") {
