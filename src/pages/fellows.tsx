@@ -163,12 +163,21 @@ export const getStaticProps: GetStaticProps = async () => {
     return { ...fellow, duration }
   })
 
+  const orderedFellows = fellows.sort((a, b) => {
+    const aDate = new Date(a.data.end_date)
+    const bDate = new Date(b.data.end_date)
+
+    if (aDate < bDate) return 1
+    if (aDate > bDate) return -1
+    return 0
+  })
+
   return {
     props: {
       defaults,
       content: data,
-      fellows,
-      availableYears: Array.from(options),
+      fellows: orderedFellows,
+      availableYears: Array.from(options).sort((a, b) => +b - +a),
     },
     revalidate: 10,
   }

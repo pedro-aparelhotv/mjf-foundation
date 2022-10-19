@@ -14,11 +14,11 @@
     "content": [
       {
         "type": "paragraph",
-        "text": "Sit magna ex amet sint amet elit Lorem non ut velit reprehenderit fugiat.",
+        "text": "Ad cupidatat enim dolor ad laborum Lorem Lorem cillum in ea proident eu. Occaecat enim incididunt sit irure excepteur. Est adipisicing excepteur voluptate sit in.",
         "spans": []
       }
     ],
-    "fellow": {
+    "author": {
       "id": "mock_document_id",
       "link_type": "Document",
       "type": "fellow",
@@ -28,6 +28,6 @@
       "first_publication_date": "1970-01-01T00:00:01+0000",
       "last_publication_date": "1970-01-01T01:00:00+0000"
     },
-    "created_at": "2017-05-18"
+    "created_at": "2020-02-14"
   }
 }

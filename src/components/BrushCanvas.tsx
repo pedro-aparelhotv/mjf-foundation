@@ -9,7 +9,7 @@ import Brush from './Brush'
 import Camera from './Camera'
 
 const meshColors = {
-  '': 0x000000,
+  '': 0xeeeeee,
   'the-foundation': 0xeeeeee,
   'the-place': 0xf2e4ce,
   news: 0xcee4e4,

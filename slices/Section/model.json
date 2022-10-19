@@ -45,13 +45,13 @@
         }
       },
       "items": {
-        "fellows": {
+        "board": {
           "type": "Link",
           "config": {
-            "label": "Fellows",
+            "label": "Board",
             "select": "document",
             "customtypes": [
-              "fellow"
+              "board_member"
             ]
           }
         }

@@ -1,4 +1,4 @@
-import App from 'next/app'
+import App, { AppContext } from 'next/app'
 import { ReactElement } from 'react'
 
 import { UserPreferencesProvider } from 'contexts/UserPreferencesContext'
@@ -28,7 +28,7 @@ function MyApp({ Component, pageProps }): ReactElement {
   )
 }
 
-MyApp.getInitialProps = async ctx => {
+MyApp.getInitialProps = async (ctx: AppContext) => {
   const appProps = await App.getInitialProps(ctx)
 
   const content = await getDefaults()
