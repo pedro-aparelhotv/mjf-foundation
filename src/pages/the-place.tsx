@@ -13,10 +13,10 @@ import { useSmoothScroll } from 'hooks/useSmoothScroll'
 
 import prismicApi, { getDefaults } from 'services/prismic'
 
-// import EmblaCarousel from 'components/EmblaCarousel'
 import SlideModal from 'components/SlideModal'
 
 import { rgbDataURL } from 'utils/color'
+// import EmblaCarousel from 'components/EmblaCarousel'
 
 interface IThePlace {
   content: IPrismicSTThePlacePage
@@ -35,6 +35,8 @@ export default function ThePlace({ content }: IThePlace) {
     selector: '.the-place',
     disable: isOpenSlideFullscreen,
   })
+
+  console.log(content)
 
   return (
     <>
