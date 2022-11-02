@@ -24,8 +24,8 @@ const SlideModal = ({ content, isOpen, closeModal }: ISlideModalProps) => {
           type="button"
           onClick={closeModal}
         >
-          <span className="sr-only">Close fullscreen slide</span>
-          Close and return
+          <span className="sr-only">Close fullscreen</span>
+          <span className="slide-moda__close-btn__text">Close and return</span>
           <span className="slide-modal__close-btn__icon">x</span>
         </button>
 

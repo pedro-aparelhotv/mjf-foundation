@@ -11,15 +11,19 @@
   "lang": "en-us",
   "alternate_languages": [],
   "data": {
-    "image": {
-      "dimensions": {
-        "width": 900,
-        "height": 500
-      },
-      "alt": null,
-      "copyright": null,
-      "url": "https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2"
-    },
+    "images": [
+      {
+        "image": {
+          "dimensions": {
+            "width": 900,
+            "height": 500
+          },
+          "alt": null,
+          "copyright": null,
+          "url": "https://images.unsplash.com/photo-1560762484-813fc97650a0"
+        }
+      }
+    ],
     "slices": []
   }
 }

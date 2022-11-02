@@ -4,6 +4,8 @@
   flex-direction: column;
 
   width: min-content;
+  user-select: none;
+
 }
 
 .figure__img {
@@ -14,6 +16,9 @@
   width: 69rem;
   min-height: 50.9rem;
 
+
+  pointer-events: none;
+
   @include media("<phone") {
     width: calc(100vw - 4rem);
   }
@@ -22,4 +27,44 @@
 .figure__fig-caption {
   @extend %paragraph-31;
   font-family: "GT Alpina Trial", serif;
+}
+
+.figure__swiper {
+  position: relative;
+  width: 69rem;
+
+
+  .swiper-pagination {
+    --gap: 0.8rem;
+    @extend %center;
+
+    z-index: 99999;
+    top: 49rem;
+    width: 69rem !important;
+    bottom: unset !important;
+
+    .swiper-pagination-bullet {
+      position: relative;
+      z-index: 1;
+      display: block;
+      width: 1rem;
+      height: 1rem;
+    }
+  }
+
+  @include media("<phone") {
+    width: calc(100vw - 4rem);
+
+    .swiper-pagination {
+      top: 65vw;
+
+      width: calc(100vw - 4rem) !important;
+
+
+      .swiper-pagination-bullet {
+        width: 2.2rem;
+        height: 2.2rem;
+      }
+    }
+  }
 }

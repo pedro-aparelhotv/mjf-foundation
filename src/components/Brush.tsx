@@ -76,8 +76,6 @@ const Brush = ({ color }: IBrushProps) => {
 
     const { mesh, material } = meshesRef.current[currentIdx]
 
-    material.uniforms.uOpacity.value = 1.0
-
     const targetX = GSAP.utils.interpolate(
       cursor.current.prevX,
       cursor.current.x,

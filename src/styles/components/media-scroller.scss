@@ -1,0 +1,29 @@
+.media-scroller {
+  position: relative;
+  overflow: visible;
+  margin-left: 29vh;
+  width: 100%;
+
+}
+
+.media-scroller__wrapper {
+  width: 100vw;
+}
+
+.media-scroller__list {
+  --gap: 1rem;
+  @extend %flex;
+  width: fit-content;
+
+
+}
+
+.media-scroller__item {
+  position: relative;
+  width: 100%;
+
+  pointer-events: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}

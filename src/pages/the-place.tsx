@@ -15,8 +15,8 @@ import prismicApi, { getDefaults } from 'services/prismic'
 
 import SlideModal from 'components/SlideModal'
 
+import { breakpoints } from 'utils/breakpoints'
 import { rgbDataURL } from 'utils/color'
-// import EmblaCarousel from 'components/EmblaCarousel'
 
 interface IThePlace {
   content: IPrismicSTThePlacePage
@@ -33,10 +33,10 @@ export default function ThePlace({ content }: IThePlace) {
 
   useSmoothScroll({
     selector: '.the-place',
-    disable: isOpenSlideFullscreen,
+    disable:
+      isOpenSlideFullscreen ||
+      (typeof window !== 'undefined' && innerWidth < breakpoints.phone),
   })
-
-  console.log(content)
 
   return (
     <>
@@ -46,72 +46,50 @@ export default function ThePlace({ content }: IThePlace) {
       <main className="the-place">
         <div className="the-place__wrapper">
           {content?.data?.slices.map(carousel => (
-            <div key={carousel.id} className="the-place-carousel">
+            <div key={carousel.id} className="the-place__carousel">
               {carousel?.items?.length > 0 && (
-                <Swiper
-                  className="the-place__swiper"
-                  breakpoints={{
-                    0: {
-                      slidesPerView: 1.075,
-                    },
-                    450: {
-                      slidesPerView: 1.51,
-                      centeredSlides: true,
-                      centerInsufficientSlides: true,
-                    },
-                  }}
-                  navigation
-                  grabCursor
-                  autoplay
-                  keyboard={{
-                    enabled: true,
-                  }}
-                  modules={[Keyboard, Navigation, Autoplay]}
-                >
-                  {carousel.items.map(({ gallery }) => (
-                    <SwiperSlide
-                      key={gallery.url}
-                      className="the-place__swiper__slide"
-                      onClick={() => handleClickOnSlide(carousel)}
-                    >
-                      <div className="the-place__swiper__slide__img">
-                        <Image
-                          layout="fill"
-                          objectFit="contain"
-                          src={gallery.url}
-                          alt={gallery.alt}
-                          quality={100}
-                          placeholder="blur"
-                          blurDataURL={rgbDataURL(238, 210, 182)}
-                        />
-                      </div>
-                    </SwiperSlide>
-                  ))}
-                </Swiper>
+                <>
+                  <Swiper
+                    className="the-place__swiper"
+                    breakpoints={{
+                      0: {
+                        slidesPerView: 1.075,
+                      },
+                      450: {
+                        slidesPerView: 1.54,
+                        centeredSlides: true,
+                        spaceBetween: 10,
+                      },
+                    }}
+                    navigation
+                    grabCursor
+                    keyboard={{
+                      enabled: true,
+                    }}
+                    modules={[Keyboard, Navigation, Autoplay]}
+                  >
+                    {carousel.items.map(({ gallery }) => (
+                      <SwiperSlide
+                        key={gallery.url}
+                        className="the-place__swiper__slide"
+                        onClick={() => handleClickOnSlide(carousel)}
+                      >
+                        <div className="the-place__swiper__slide__img">
+                          <Image
+                            layout="fill"
+                            objectFit="contain"
+                            src={gallery.url}
+                            alt={gallery.alt}
+                            quality={100}
+                            placeholder="blur"
+                            blurDataURL={rgbDataURL(238, 210, 182)}
+                          />
+                        </div>
+                      </SwiperSlide>
+                    ))}
+                  </Swiper>
+                </>
               )}
-
-              {/* {carousel?.items?.length > 0 && (
-                <EmblaCarousel>
-                  {carousel.items.map(({ gallery }) => (
-                    <div
-                      key={gallery.url}
-                      className="the-place__swiper__slide__img"
-                    >
-                      <Image
-                        layout="responsive"
-                        objectFit="contain"
-                        src={gallery.url}
-                        alt={gallery.alt}
-                        width={gallery.dimensions.width}
-                        height={gallery.dimensions.height}
-                        quality={100}
-                        placeholder="blur"
-                        blurDataURL={rgbDataURL(238, 210, 182)}
-                      />
-                    </div>
-                  ))}
-                </EmblaCarousel>
-              )} */}
 
               <h1 className="the-place__swiper__slide__title">
                 {carousel.primary.title ?? ''}

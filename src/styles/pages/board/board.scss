@@ -29,13 +29,16 @@
   @extend %flex;
   flex-direction: column;
 
-  flex: 1;
+  width: calc((100vw - 11vh - 4rem) / 2);
 
   &.--scrollable {
     padding-bottom: 4rem;
   }
 
   @include media("<phone") {
+    width: unset;
+    flex: 1;
+
     &:first-of-type {
       order: 2;
     }

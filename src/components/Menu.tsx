@@ -2,6 +2,8 @@ import Link from 'next/link'
 import { CSSProperties } from 'react'
 import { IPrismicSTNavigation } from 'types/PrismisSingleType'
 
+import { getDayOfTheYear, getNorthHemisphereSeason, map } from 'utils/helpers'
+
 import LogoMobileIcon from 'assets/logo-mobile.svg'
 import LogoIcon from 'assets/logo.svg'
 import MapBGBottomIcon from 'assets/map-bg-bottom.svg'
@@ -24,10 +26,25 @@ const Menu = ({
     setIsOpen(false)
   }
 
+  const now = new Date()
+
+  const topHue = map(getDayOfTheYear(now), 1, 366, 0, 255)
+  const bottomHue = map(now.getHours(), 0, 24, 255, 0)
+
+  const season = getNorthHemisphereSeason(now)
+
   return (
     <div className="menu" data-active={isOpen}>
       <div className="menu__wrapper">
-        <div className="menu__map">
+        <div
+          className="menu__map"
+          style={
+            {
+              '--bg-top-hue': topHue,
+              '--bg-bottom-hue': bottomHue,
+            } as CSSProperties
+          }
+        >
           <div
             className="menu__map__fold --first"
             style={{ '--order': 1 } as CSSProperties}
@@ -177,7 +194,7 @@ const Menu = ({
 
                               <div className="menu__footer">
                                 <div className="menu__tag">
-                                  <span>winter</span>
+                                  <span>{season}</span>
                                 </div>
                                 <a
                                   className="menu__tag"

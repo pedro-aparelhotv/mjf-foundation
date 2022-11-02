@@ -19,7 +19,7 @@
   }
 }
 
-.the-place-carousel {
+.the-place__carousel {
   &+& {
     margin-block-start: 12.4rem;
   }
@@ -37,37 +37,24 @@
   pointer-events: all;
 }
 
-.the-place__swiper__slide {
-  --gap: 4.6rem;
-  @extend %flex;
-  flex-direction: column;
-}
+.the-place__swiper__slide {}
 
 .the-place__swiper__slide__img {
-  // @include ratio(984, 655);
+  --img-height: 65.5rem;
   position: relative;
+  min-height: var(--img-height);
 
-  min-width: 55.4rem;
-  max-width: 98.4rem;
-  width: 100%;
-  width: 98.4rem;
-
-  min-height: 65.5rem;
-  max-height: 65.5rem;
-
+  background-color: var(--);
   cursor: url('/images/cursor-open-img.png'), auto;
-
-  * {
-    object-fit: contain;
-    object-position: center;
-  }
 
   img {
     max-width: 100%;
     max-height: 100%;
+    background-color: rgb(238, 210, 182);
   }
 
   @include media("<phone") {
+    --img-height: 60vw;
     min-width: unset;
     width: 89vw;
     height: unset;

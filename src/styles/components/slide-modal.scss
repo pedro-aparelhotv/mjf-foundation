@@ -44,6 +44,17 @@
   right: 3.2rem;
 
   transform-origin: center;
+
+  &:hover {
+    .slide-moda__close-btn__text {
+      opacity: 1;
+    }
+  }
+}
+
+.slide-moda__close-btn__text {
+  opacity: 0;
+  transition: 0.4s ease;
 }
 
 .slide-modal__close-btn__icon {
@@ -55,6 +66,13 @@
   border-radius: 50%;
   padding-block-end: 0.5rem;
   border: 1px solid var(--border-01-clr);
+
+  @include media("<phone") {
+    font-size: 5.8rem;
+    width: 7.2rem;
+    height: 7.2rem;
+
+  }
 }
 
 .slide-modal__swiper {}
@@ -94,12 +112,13 @@
   transform: translate(0, -50%);
 
   max-width: 8ch;
-  transition: 0.4s ease;
+  transition: 0.8s ease;
 
   cursor: pointer;
 
   &:disabled {
     filter: blur(4px);
+    opacity: 0;
   }
 
   @include media("<phone") {

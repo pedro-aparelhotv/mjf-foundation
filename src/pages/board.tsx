@@ -11,6 +11,8 @@ import ArticleModal from 'components/ArticleModal'
 import Figure from 'components/Figure'
 import Section from 'components/Section'
 
+import 'swiper/css'
+
 export default function Board({ content }) {
   const [isOpen, setIsOpen] = useState(false)
 
@@ -52,14 +54,7 @@ export default function Board({ content }) {
           </div>
 
           <div className="board__content">
-            {content.data?.image && (
-              <Figure
-                data={{
-                  url: content.data.image.url,
-                  caption: content.data.image.alt,
-                }}
-              />
-            )}
+            {content.data?.images && <Figure data={content.data.images} />}
           </div>
         </div>
       </main>
@@ -76,7 +71,11 @@ export default function Board({ content }) {
 export const getStaticProps: GetStaticProps = async () => {
   const defaults = await getDefaults()
   const data = await prismicApi.getSingle('board_page', {
-    fetchLinks: ['board.name', 'board.content', 'board.profile_image'],
+    fetchLinks: [
+      'board_member.name',
+      'board_member.content',
+      'board_member.profile_image',
+    ],
   })
 
   return {

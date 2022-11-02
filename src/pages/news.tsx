@@ -28,8 +28,6 @@ export default function News({ content }: INewsProps) {
     setIsOpen(true)
   }
 
-  console.log(content)
-
   const articleOpenedData = content.find(news => news.id === articleOpened)
 
   return (

@@ -5,12 +5,20 @@
   "status": true,
   "json": {
     "Main": {
-      "image": {
-        "type": "Image",
+      "images": {
+        "type": "Group",
         "config": {
-          "label": "Image",
-          "constraint": {},
-          "thumbnails": []
+          "label": "Images",
+          "fields": {
+            "image": {
+              "type": "Image",
+              "config": {
+                "label": "Image",
+                "constraint": {},
+                "thumbnails": []
+              }
+            }
+          }
         }
       },
       "slices": {

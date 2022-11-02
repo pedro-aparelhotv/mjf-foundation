@@ -25,6 +25,12 @@
   --transition-easing-start: ease-out;
   --transition-easing-end: ease-in;
 
+  --bg-top-hue: 202;
+  --bg-clr-top: hsl(var(--bg-top-hue), 88%, 90%);
+
+  --bg-bottom-hue: 80;
+  --bg-clr-bottom: hsl(var(--bg-bottom-hue), 27%, 81%);
+
   &.--mobile {
     display: none;
   }
@@ -68,7 +74,7 @@
   -moz-backface-visibility: hidden;
   overflow: visible;
 
-  background: linear-gradient(180deg, #CEEBFC 0%, #D2DBC0 100%);
+  background: linear-gradient(180deg, var(--bg-clr-top) 0%, var(--bg-clr-bottom) 100%);
 
   margin: 0;
 
@@ -416,7 +422,7 @@
   margin-block-end: 1.2rem;
 
   @include media("<phone") {
-    margin-block-end: 3.6rem;
+    margin-block-end: 2rem;
   }
 }
 

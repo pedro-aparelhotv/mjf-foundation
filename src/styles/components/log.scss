@@ -8,6 +8,10 @@
 
 .log__content {
   @extend %paragraph-24;
+
+  >*+* {
+    margin-block-start: 1rem;
+  }
 }
 
 .log__info {

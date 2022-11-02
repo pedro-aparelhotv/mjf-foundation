@@ -41,14 +41,7 @@ export default function TheFoundation({ content }) {
           </div>
 
           <div className="the-foundation__content">
-            {content.data?.image && (
-              <Figure
-                data={{
-                  url: content.data.image.url,
-                  caption: content.data.image.alt,
-                }}
-              />
-            )}
+            {content.data?.images && <Figure data={content.data.images} />}
           </div>
         </div>
       </main>
